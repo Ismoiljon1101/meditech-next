@@ -8,7 +8,19 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import { alpha, styled } from '@mui/material/styles';
 import Menu, { MenuProps } from '@mui/material/Menu';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+// Icons
+import { 
+  SupportAgent, 
+  People, 
+  Home, 
+  Apartment,
+  AccountCircleOutlined,
+  LiveHelp,
+  AccountCircle, 
+} from '@mui/icons-material';
+
+
+
 import { CaretDown } from 'phosphor-react';
 import useDeviceDetect from '../hooks/useDeviceDetect';
 import Link from 'next/link';
@@ -143,21 +155,33 @@ const Top = () => {
 		return (
 			<Stack className={'top'}>
 				<Link href={'/'}>
-					<div>{t('Home')}</div>
+					<Home/>	
+					{/* <div>{t('Home')}</div> */}
 				</Link>
 				<Link href={'/property'}>
-					<div>{t('Properties')}</div>
+					<Apartment/>
+					{/* <div>{t('Properties')}</div> */}
 				</Link>
 				<Link href={'/agent'}>
-					<div> {t('Agents')} </div>
+					<SupportAgent />
+					{/* <div> {t('Agents')} </div> */}
 				</Link>
 				<Link href={'/community?articleCategory=FREE'}>
-					<div> {t('Community')} </div>
+					<People/>
+					{/* <div> {t('Community')} </div> */}
 				</Link>
 				<Link href={'/cs'}>
-					<div> {t('CS')} </div>
+					<LiveHelp />
+					{/* <div> {t('CS')} </div> */}
 				</Link>
+				{user?._id && (
+								<Link href={'/mypage'}>
+									<AccountCircle />
+									{/* <div> {t('My Page')} </div> */}
+								</Link>
+							)}
 			</Stack>
+			
 		);
 	} else {
 		return (
@@ -221,7 +245,7 @@ const Top = () => {
 							) : (
 								<Link href={'/account/join'}>
 									<div className={'join-box'}>
-										<AccountCircleOutlinedIcon />
+										<AccountCircleOutlined />
 										<span>
 											{t('Login')} / {t('Register')}
 										</span>
