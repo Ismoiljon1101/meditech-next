@@ -1,25 +1,47 @@
 @import '/scss/variables.scss';
+@import '/scss/mobile/cs/cs.scss';
 
 #mobile-wrap {
   .top {
-    height: 50px;
+
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     border-radius: 50px;
 
-    // Blur + sticky bottom on mobile
+  .nav-bar {
     @media screen and (max-width: 768px) {
       position: fixed;
+      display: flex;                // flex layout
+      flex-direction: row;          // side-by-side buttons
+      justify-content: space-around;
+      align-items: center;
       bottom: 0;
       left: 0;
       width: 100%;
+      padding: 8px 0;
       backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.7); // Light blur BG for contrast
+      background-color: rgba(255, 255, 255, 0.7);
       z-index: 1000;
+
+      a {
+        flex: 1;                    // make each button take equal width
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        border-radius: 12px;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          background-color: rgba(0,0,0,0.05);
+        }
+      }
     }
   }
+}
+
 
   .info-box {
     width: 100%;

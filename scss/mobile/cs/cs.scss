@@ -1,0 +1,288 @@
+/* Mobile-friendly SCSS for CS page, Notice and FAQ.
+   Paste this into your SCSS file (SASS/SCSS). */
+
+#mobile-wrap {
+  .top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 .5rem;
+  }
+
+
+  /* Main page */
+  .cs-page {
+
+    .container {
+      padding: 1rem;
+    }
+
+    .cs-main-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+  
+  
+      .info {
+        background-image: url("/img/cs/image.png");
+        background-repeat: no-repeat;  /* no tiling */
+        background-position: center;   /* crop from center */
+        background-size: cover;        /* scale & crop to fill container */
+        height:200px;
+        span {
+          padding-top: 55px;
+          font-size: 1.2rem;
+          font-weight: 700;
+        }
+        p {
+          font-size: 1rem;
+          margin: 0;
+        }
+      }
+
+      .btns {
+        display: flex;
+        gap: 0.5rem;
+
+        div {
+          flex: 1;
+          text-align: center;
+          padding: 0.5rem;
+          border-radius: 6px;
+          background: #e8a766;
+          cursor: pointer;
+        }
+
+        .active {
+          background: #333;
+          color: #fff;
+        }
+      }
+    }
+
+    .cs-content {
+      margin-top: 1rem;
+
+      /* Notice */
+      .notice-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .title {
+          font-size: 1.4rem;
+          font-weight: 700;
+        }
+
+        .main {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          .top {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            padding: 0.5rem;
+            border-bottom: 2px solid #ccc;
+          }
+
+          .bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .notice-card {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0.75rem;
+              border-radius: 6px;
+              background: #fff;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+              &.event {
+                background: #ffe7b3;
+                font-weight: 600;
+              }
+
+              .notice-number {
+                width: 40px;
+                text-align: center;
+                font-weight: 700;
+              }
+
+              .notice-title {
+                flex: 1;
+                padding: 0 0.5rem;
+                word-break: break-word;
+              }
+
+              .notice-date {
+                font-size: 0.9rem;
+                color: #666;
+                white-space: nowrap;
+                margin-left: 0.5rem;
+              }
+            }
+          }
+        }
+      } // .notice-content
+
+      /* FAQ */
+      .faq-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .categories {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 0.5rem;
+          margin-bottom: 1rem;
+
+          div {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-align: center;
+            transition: transform 120ms ease, background 120ms ease;
+          }
+
+          div.active {
+            background: #333;
+            color: #fff;
+            font-weight: 600;
+          }
+        }
+
+        .wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+
+          .question {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            background: #fafafa;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+
+            .badge {
+              font-weight: 700;
+              margin-right: 0.25rem;
+            }
+          }
+
+          .answer {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+
+            .badge {
+              font-weight: 700;
+            }
+          }
+        }
+      } // .faq-content
+    } // .cs-content
+  } // .cs-page
+
+  /* ---------- Responsive tweaks ---------- */
+  @media screen and (max-width: 768px) {
+    /* sticky blur bottom for the #mobile-wrap .top */
+    #mobile-wrap {
+      .top {
+        position: fixed;
+        bottom: 5px;
+        left: 2%;
+        width: 96%;
+        padding: 0 0.75rem;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.85);
+        z-index: 1000;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    .cs-page {
+      height: auto;
+
+      .cs-main-info {
+        .btns {
+          flex-direction: column;
+        }
+      }
+
+      .cs-content {
+        .notice-content {
+          .main {
+            .top {
+              display: none; /* hide header row on mobile */
+            }
+
+            .bottom {
+              .notice-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+
+                .notice-number,
+                .notice-title,
+                .notice-date {
+                  width: 100%;
+                  text-align: left;
+                }
+
+                .notice-date {
+                  font-size: 0.8rem;
+                  color: #888;
+                }
+              }
+            }
+          }
+        }
+
+        .faq-content {
+          .categories {
+            grid-template-columns: repeat(2, 1fr); /* two columns on small screens */
+          }
+
+          .wrap {
+            .question {
+              flex-direction: column;
+              align-items: flex-start;
+
+              .badge {
+                margin-bottom: 0.25rem;
+              }
+            }
+
+            .answer {
+              flex-direction: column;
+              align-items: flex-start;
+
+              .badge {
+                margin-bottom: 0.25rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* extra small phones */
+  @media screen and (max-width: 480px) {
+    .faq-content {
+      .categories {
+        grid-template-columns: 1fr; /* single column on very small screens */
+      }
+    }
+  }
+}

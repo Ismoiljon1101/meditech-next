@@ -154,34 +154,35 @@ const Top = () => {
 	if (device == 'mobile') {
 		return (
 			<Stack className={'top'}>
-				<Link href={'/'}>
-					<Home/>	
-					{/* <div>{t('Home')}</div> */}
-				</Link>
-				<Link href={'/property'}>
-					<Apartment/>
-					{/* <div>{t('Properties')}</div> */}
-				</Link>
-				<Link href={'/agent'}>
-					<SupportAgent />
-					{/* <div> {t('Agents')} </div> */}
-				</Link>
-				<Link href={'/community?articleCategory=FREE'}>
-					<People/>
-					{/* <div> {t('Community')} </div> */}
-				</Link>
-				<Link href={'/cs'}>
-					<LiveHelp />
-					{/* <div> {t('CS')} </div> */}
-				</Link>
-				{user?._id && (
-								<Link href={'/mypage'}>
-									<AccountCircle />
-									{/* <div> {t('My Page')} </div> */}
-								</Link>
-							)}
+				<Stack	className={'nav-bar'}>
+					<Link href={'/'}>
+						<Home/>	
+						{/* <div>{t('Home')}</div> */}
+					</Link>
+					<Link href={'/property'}>
+						<Apartment/>
+						{/* <div>{t('Properties')}</div> */}
+					</Link>
+					<Link href={'/agent'}>
+						<SupportAgent />
+						{/* <div> {t('Agents')} </div> */}
+					</Link>
+					<Link href={'/community?articleCategory=FREE'}>
+						<People/>
+						{/* <div> {t('Community')} </div> */}
+					</Link>
+					<Link href={'/cs'}>
+						<LiveHelp />
+						{/* <div> {t('CS')} </div> */}
+					</Link>
+					{user?._id && (
+						<Link href={'/mypage'}>
+							<AccountCircle />
+							{/* <div> {t('My Page')} </div> */}
+					</Link>
+					)}
+				</Stack>
 			</Stack>
-			
 		);
 	} else {
 		return (
