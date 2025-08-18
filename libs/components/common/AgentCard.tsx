@@ -24,7 +24,57 @@ const AgentCard = (props: AgentCardProps) => {
 		: '/img/profile/defaultUser.svg';
 
 	if (device === 'mobile') {
-		return <div>AGENT CARD</div>;
+		return (
+			<Stack className="agent-general-card">
+				<Link
+					href={{
+						pathname: '/agent/detail',
+						query: { agentId: agent?._id },
+					}}
+				>
+					<Box
+						component={'div'}
+						className={'agent-img'}
+						style={{
+							backgroundImage: `url(${imagePath})`,
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+							backgroundRepeat: 'no-repeat',
+						}}
+					>
+						<div>{agent?.memberProperties} properties</div>
+					</Box>
+				</Link>
+
+				<Stack className={'agent-desc'}>
+					<Box component={'div'} className={'agent-info'}>
+						<Link
+							href={{
+								pathname: '/agent/detail',
+								query: { agentId: 'id' },
+							}}
+						>
+							<strong>{agent?.memberFullName ?? agent?.memberNick}</strong>
+						</Link>
+						<span>Agent</span>
+					</Box>
+					<Box component={'div'} className={'buttons'}>
+						<IconButton color={'default'}>
+							<RemoveRedEyeIcon />
+						</IconButton>
+						<Typography className="view-cnt">{agent?.memberViews}</Typography>
+						<IconButton color={'default'} onClick={() => likeMemberHandler(user,agent?._id)}>
+							{agent?.meLiked && agent?.meLiked[0]?.myFavorite ? (
+								<FavoriteIcon color={'primary'} />
+							) : (
+								<FavoriteBorderIcon />
+							)}
+						</IconButton>
+						<Typography className="view-cnt">{agent?.memberLikes}</Typography>
+					</Box>
+				</Stack>
+			</Stack>
+		);
 	} else {
 		return (
 			<Stack className="agent-general-card">

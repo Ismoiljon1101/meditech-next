@@ -1,9 +1,13 @@
 @import '/scss/variables.scss';
 @import '/scss/mobile/cs/cs.scss';
+@import '/scss/mobile/mypage/my-page.scss';
+
+@import '/scss/mobile/agent/detail.scss';
+@import '/scss/mobile/agent/agent.scss';
+
 
 #mobile-wrap {
   .top {
-
     display: flex;
     justify-content: space-around;
     align-items: center;
