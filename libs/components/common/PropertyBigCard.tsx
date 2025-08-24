@@ -29,7 +29,88 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 	};
 
 	if (device === 'mobile') {
-		return <div>APARTMEND BIG CARD</div>;
+		return (
+			 <Stack
+				className="property-big-card-box"
+				onClick={() => goPropertyDetatilPage(property?._id)}
+				role="button"
+				tabIndex={0}
+				aria-label={`View details for ${property?.propertyTitle ?? 'property'}`}
+				onKeyDown={(e: React.KeyboardEvent) => {
+				if (e.key === 'Enter' || e.key === ' ') goPropertyDetatilPage(property?._id);
+				}}
+			>
+				<Box
+				component="div"
+				className="card-img"
+				style={{
+					backgroundImage: `url(${REACT_APP_API_URL}/${property?.propertyImages?.[0]})`,
+					backgroundColor: '#f2f2f2',
+				}}
+				>
+				{property && property?.propertyRank >= topPropertyRank && (
+					<div className="status" aria-label="Top property">
+					<img src="/img/icons/electricity.svg" alt="" aria-hidden="true" />
+					<span>top</span>
+					</div>
+				)}
+
+				<div className="price">${formatterStr(property?.propertyPrice)}</div>
+				</Box>
+
+				<Box component="div" className="info">
+				<strong className="title">{property?.propertyTitle}</strong>
+				<p className="desc">{property?.propertyAddress}</p>
+
+				<div className="options">
+					<div className="option">
+					<img src="/img/icons/bed.svg" alt="" aria-hidden="true" />
+					<span>{property?.propertyBeds} bed</span>
+					</div>
+					<div className="option">
+					<img src="/img/icons/room.svg" alt="" aria-hidden="true" />
+					<span>{property?.propertyRooms} rooms</span>
+					</div>
+					<div className="option">
+					<img src="/img/icons/expand.svg" alt="" aria-hidden="true" />
+					<span>{property?.propertySquare} m2</span>
+					</div>
+				</div>
+
+				<Divider className="divider" />
+
+				<div className="bott">
+					<div className="tags">
+					{property?.propertyRent ? <p>Rent</p> : <span>Rent</span>}
+					{property?.propertyBarter ? <p>Barter</p> : <span>Barter</span>}
+					</div>
+
+					<div className="buttons-box">
+					<IconButton color="default" aria-label="Views">
+						<RemoveRedEyeIcon />
+					</IconButton>
+					<Typography className="view-cnt">{property?.propertyViews}</Typography>
+
+					<IconButton
+						color="default"
+						aria-label={property?.meLiked && property?.meLiked[0]?.myFavorite ? 'Unlike property' : 'Like property'}
+						onClick={(e: { stopPropagation: () => void; }) => {
+						e.stopPropagation();
+						likePropertyHandler(user, property?._id);
+						}}
+					>
+						{property?.meLiked && property?.meLiked[0]?.myFavorite ? (
+							<FavoriteIcon style={{ color: 'red' }} />
+						) : (
+							<FavoriteIcon />
+						)}
+					</IconButton>
+					<Typography className="view-cnt">{property?.propertyLikes}</Typography>
+					</div>
+				</div>
+				</Box>
+			</Stack>
+		)
 	} else {
 		return (
 			<Stack className="property-big-card-box" onClick={() => goPropertyDetatilPage(property?._id)}>
@@ -77,7 +158,7 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 							<Typography className="view-cnt">{property?.propertyViews}</Typography>
 							<IconButton
 								color={'default'}
-								onClick={(e) => {
+								onClick={(e: { stopPropagation: () => void; }) => {
 									e.stopPropagation();
 									likePropertyHandler(user, property?._id);
 								}}

@@ -159,30 +159,30 @@
 }
 .agent-general-card {
 	position: relative;
-	// margin-right: 13.5px;  // 27px / 2
+	// margin-right: 27px;  // 27px / 2
 	margin:5px;
-	margin-bottom: 17px;   // 34px / 2
+	margin-bottom: 34px;   // 34px / 2
 	display: flex;
 	flex-direction: column;
 
 	.agent-img {
-		border-radius: 6px;      // 12px / 2
-		width: 116.5px;          // 233px / 2
-		height: 136.5px;         // 273px / 2
+		border-radius: 12px;      // 12px / 2
+		width: 233px;          // 233px / 2
+		height: 273px;         // 273px / 2
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		cursor: pointer;
 
 		div {
 			position: absolute;
-			padding: 6px;        // 12px / 2
-			top: 6px;            // 12px / 2
-			left: 6px;           // 12px / 2
-			border-radius: 3px;  // 6px / 2
+			padding: 12px;        // 12px / 2
+			top: 12px;            // 12px / 2
+			left: 12px;           // 12px / 2
+			border-radius: 6px;  // 6px / 2
 			background: #eb6753;
 			color: #fff;
 			font-family: $font;
-			font-size: 6px;      // 12px / 2
+			font-size: 12px;      // 12px / 2
 			font-style: normal;
 			font-weight: 600;
 			line-height: normal;
@@ -190,7 +190,7 @@
 	}
 
 	.agent-desc {
-		margin-top: 11.5px;     // 23px / 2
+		margin-top: 23px;     // 23px / 2
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -203,7 +203,7 @@
 			strong {
 				color: #181a20;
 				font-family: $font;
-				font-size: 7.5px;   // 15px / 2
+				font-size: 15px;   // 15px / 2
 				font-style: normal;
 				font-weight: 600;
 				line-height: normal;
@@ -213,10 +213,10 @@
 			span {
 				color: #181a20;
 				font-family: $font;
-				font-size: 7.5px;   // 15px / 2
+				font-size: 15px;   // 15px / 2
 				font-style: normal;
 				font-weight: 400;
-				line-height: 14px;  // 28px / 2
+				line-height: 28px;  // 28px / 2
 			}
 		}
 
@@ -228,13 +228,13 @@
 			align-items: center;
 
 			svg {
-				width: 12px;        // 24px / 2
-				height: 12px;       // 24px / 2
+				width: 24px;        // 24px / 2
+				height: 24px;       // 24px / 2
 				cursor: pointer;
 			}
 
 			.view-cnt {
-				font-size: 6.5px;   // 13px / 2
+				font-size: 13px;   // 13px / 2
 			}
 		}
 	}
