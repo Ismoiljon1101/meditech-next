@@ -266,6 +266,7 @@ const CommunityDetail: NextPage = ({ initialInput, ...props }: T) => {
 									label={'Recommendation'}
 									className={`tab-button ${articleCategory === 'RECOMMEND' ? 'active' : ''}`}
 								/>
+								<br />
 								<Tab
 									value={'NEWS'}
 									label={'News'}
