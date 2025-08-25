@@ -1,0 +1,449 @@
+#mobile-wrap {
+	// Mobile-only styles for My Page
+	// Assumptions: Stack renders as a flex container. Font variable $font is available upstream.
+
+	@media (max-width: 768px) {
+	#my-page {
+		// background: #f6f6f6;
+
+		.container {
+		padding: 0;
+		margin: 0;
+
+		.my-page {
+			position: relative;
+			width: 100%;
+			display: flex;
+			flex-direction: column; // Stack vertically on mobile
+			gap: 0;
+			padding-top: 0;
+		}
+
+		.back-frame {
+			width: 100%;
+			margin: 0;
+			border-radius: 0;
+			border: none;
+			background: transparent;
+			box-shadow: none;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
+
+		// Top sticky menu area
+		.left-config {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			width: 100%;
+			height: auto;
+			margin: 0;
+			padding: 12px 16px;
+			background: #ffffff;
+			border: 0;
+			border-bottom: 1px solid #ececec;
+			box-shadow: 0 2px 8px rgba(24, 26, 32, 0.06);
+
+			// Optional: compact profile summary within menu if present
+			.profile {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin: 6px 0 0 0;
+
+			.profile-img img {
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+
+			.user-info {
+				margin-left: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+
+				.user-name {
+				color: #181a20;
+				font-family: $font;
+				font-size: 15px;
+				font-weight: 600;
+				}
+
+				.user-phone {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+
+				img {
+					width: 14px;
+					height: 14px;
+					margin: 0;
+				}
+				}
+
+				.view-list {
+				font-weight: 700;
+				color: #eb6753;
+				font-size: 12px;
+				}
+			}
+			}
+
+			.sections {
+			margin-top: 12px;
+			gap: 16px;
+
+			.section {
+				.title {
+				font-family: $font;
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 22px;
+				color: #181a20;
+				margin-bottom: 6px;
+				}
+
+				.sub-section {
+				width: 100%;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+				gap: 8px;
+				padding: 0;
+
+				li {
+					height: auto;
+					padding: 12px 10px;
+					border-radius: 8px;
+					background: #fff;
+					border: 1px solid #ededed;
+				}
+
+				.focus {
+					background: #181a20;
+					border-radius: 10px;
+					padding: 12px 10px;
+
+					p {
+					font-size: 14px;
+					color: #ffffff;
+					}
+				}
+
+				.flex-box {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					.com-icon {
+					display: flex;
+					flex-direction: row;
+					gap: 8px;
+					margin-left: 0;
+					}
+
+					p {
+					font-size: 14px;
+					color: #181a20;
+					}
+				}
+				}
+
+				img {
+				width: 16px;
+				height: 16px;
+				}
+
+				.sub-title {
+				margin-left: 0;
+				color: #181a20;
+				font-family: $font;
+				font-size: 13px;
+				font-weight: 600;
+				line-height: 24px;
+				}
+			}
+			}
+		}
+
+		// Main content wrapper
+		.main-config {
+			position: relative;
+			width: 100%;
+			margin-top: 0;
+			padding: 16px;
+			background: #ffffff;
+			border-radius: 16px 16px 0 0;
+			box-shadow: 0 -2px 10px rgba(24, 26, 32, 0.05);
+			align-items: stretch;
+			gap: 20px;
+
+			.list-config {
+			display: flex;
+			width: 100%;
+			height: auto;
+			flex-direction: column; // Single column on mobile
+			gap: 16px;
+
+			// Card style for content items
+			.card-config {
+				width: 100%;
+				height: auto;
+				border-radius: 12px;
+				background: #fff;
+				box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
+				overflow: hidden;
+				border: 1px solid #efefef;
+
+				.top {
+				position: relative;
+				width: 100%;
+				height: 200px;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover; // Better for mobile visuals
+					border-radius: 12px 12px 0 0;
+				}
+
+				.top-badge {
+					position: absolute;
+					top: 12px;
+					left: 12px;
+					display: inline-flex;
+					min-width: 64px;
+					height: 26px;
+					justify-content: center;
+					align-items: center;
+					border-radius: 6px;
+					padding: 4px 10px;
+					background: #eb6753;
+					color: #fff;
+					text-align: center;
+					font-family: $font;
+					font-size: 11px;
+					font-weight: 700;
+
+					img {
+					height: 14px;
+					}
+				}
+
+				.price-box {
+					position: absolute;
+					bottom: 12px;
+					left: 12px;
+					padding: 6px 10px;
+					border-radius: 6px;
+					border: 1px solid rgba(255, 255, 255, 0.5);
+					background: #fff;
+
+					p {
+					color: #181a20;
+					font-family: $font;
+					font-size: 14px;
+					font-weight: 600;
+					}
+				}
+				}
+
+				.bottom {
+				width: 100%;
+				padding: 14px 12px;
+
+				.name-address {
+					width: 100%;
+					gap: 6px;
+					margin-bottom: 12px;
+
+					.name {
+					width: 100%;
+					height: auto;
+
+					p {
+						color: #181a20;
+						font-family: $font;
+						font-size: 15px;
+						font-weight: 700;
+						text-transform: capitalize;
+						line-height: 1.3;
+						overflow: hidden;
+						display: -webkit-box;
+						-webkit-line-clamp: 1;
+						-webkit-box-orient: vertical;
+					}
+					}
+
+					.address {
+					width: 100%;
+
+					p {
+						color: #717171;
+						font-family: $font;
+						font-size: 13px;
+						font-weight: 400;
+						line-height: 1.4;
+						overflow: hidden;
+						display: -webkit-box;
+						-webkit-line-clamp: 1;
+						-webkit-box-orient: vertical;
+					}
+					}
+				}
+
+				.options {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					width: 100%;
+					gap: 12px;
+					margin-bottom: 10px;
+
+					.option {
+					display: flex;
+					flex-direction: row;
+					gap: 6px;
+					align-items: center;
+
+					p {
+						color: #181a20;
+						font-family: $font;
+						font-size: 12px;
+						font-weight: 400;
+					}
+					}
+				}
+
+				.divider {
+					width: 100%;
+					height: 1px;
+					background: #eee;
+					margin: 10px 0 12px;
+				}
+
+				.type-buttons {
+					display: flex;
+					flex-direction: row;
+					width: 100%;
+					justify-content: space-between;
+					align-items: center;
+					gap: 10px;
+
+					.type {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					gap: 6px;
+
+					p {
+						color: #181a20;
+						font-family: $font;
+						font-size: 13px;
+						font-weight: 500;
+					}
+
+					.disabled-type {
+						color: rgba(143, 143, 143, 0.7);
+					}
+					}
+
+					.buttons {
+					display: flex;
+					flex-direction: row;
+					gap: 8px;
+
+					button {
+						min-height: 40px;
+						padding: 10px 14px;
+						border-radius: 10px;
+						border: 1px solid #e6e6e6;
+						background: #f8f8f8;
+						color: #181a20;
+						font-size: 13px;
+						font-weight: 600;
+					}
+					}
+				}
+				}
+			}
+			}
+
+			// Pagination
+			.pagination-config {
+			width: 100%;
+			height: auto;
+			align-items: center;
+			gap: 12px;
+			padding: 8px 0;
+
+			.pagination-box {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				gap: 8px;
+
+				button,
+				.page {
+				min-width: 40px;
+				height: 40px;
+				border-radius: 10px;
+				border: 1px solid #e6e6e6;
+				background: #fff;
+				font-size: 14px;
+				font-weight: 600;
+				color: #181a20;
+				}
+
+				.active {
+				background: #181a20;
+				color: #fff;
+				border-color: #181a20;
+				}
+			}
+
+			.total-result {
+				p {
+				color: #181a20;
+				text-align: center;
+				font-family: $font;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 20px;
+				}
+			}
+			}
+		}
+		}
+	}
+
+	// Touch targets and inputs (global mobile tweaks within page)
+	#my-page {
+		input,
+		select,
+		textarea,
+		button {
+		font-size: 16px; // prevent iOS zoom
+		}
+
+		button {
+		min-height: 44px; // reachable touch target
+		}
+	}
+	}
+
+	// Extra small phones refinements
+	@media (max-width: 360px) {
+	#my-page .main-config {
+		padding: 12px;
+	}
+	#my-page .main-config .list-config .card-config .top {
+		height: 180px;
+	}
+	}
+
+}

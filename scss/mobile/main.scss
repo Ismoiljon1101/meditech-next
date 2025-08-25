@@ -14,7 +14,18 @@
 @import '/scss/mobile/property/detail.scss';
 
 
-
+@import '/scss/mobile/mypage/mypage.scss';
+@import '/scss/mobile/mypage/addNewProperty.scss';
+@import '/scss/mobile/mypage/myProperties.scss';
+@import '/scss/mobile/mypage/myFavorites.scss';
+@import '/scss/mobile/mypage/mySaved.scss';
+@import '/scss/mobile/mypage/myProfile.scss';
+@import '/scss/mobile/mypage/myArticles.scss';
+@import '/scss/mobile/mypage/writeArticle.scss';
+@import '/scss/mobile/member/memberPage.scss';
+@import '/scss/mobile/member/memberFollows.scss';
+@import '/scss/mobile/member/memberArticles.scss';
+@import '/scss/mobile/member/memberProperties.scss';
 
 #mobile-wrap {
   .top {

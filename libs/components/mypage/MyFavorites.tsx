@@ -60,7 +60,46 @@ const MyFavorites: NextPage = () => {
 	};
 
 	if (device === 'mobile') {
-		return <div>NESTAR MY FAVORITES MOBILE</div>;
+		return (
+			<div id="my-favorites-page">
+				<Stack className="main-title-box">
+					<Stack className="right-box">
+						<Typography className="main-title">My Favorites</Typography>
+						<Typography className="sub-title">We are glad to see you again!</Typography>
+					</Stack>
+				</Stack>
+				<Stack className="favorites-list-box">
+					{myFavorites?.length ? (
+						myFavorites?.map((property: Property) => {
+							return <PropertyCard property={property} myFavorites={true} likePropertyHandler={likePropertyHandler} />;
+						})
+					) : (
+						<div className={'no-data'}>
+							<img src="/img/icons/icoAlert.svg" alt="" />
+							<p>No Favorites found!</p>
+						</div>
+					)}
+				</Stack>
+				{myFavorites?.length ? (
+					<Stack className="pagination-config">
+						<Stack className="pagination-box">
+							<Pagination
+								count={Math.ceil(total / searchFavorites.limit)}
+								page={searchFavorites.page}
+								shape="circular"
+								color="primary"
+								onChange={paginationHandler}
+							/>
+						</Stack>
+						<Stack className="total-result">
+							<Typography>
+								Total {total} favorite propert{total > 1 ? 'ies' : 'y'}
+							</Typography>
+						</Stack>
+					</Stack>
+				) : null}
+			</div>
+		);
 	} else {
 		return (
 			<div id="my-favorites-page">

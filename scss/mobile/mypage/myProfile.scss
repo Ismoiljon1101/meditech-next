@@ -1,0 +1,379 @@
+@media (max-width: 768px) {
+    #mobile-wrap {
+        #my-page {
+            #my-profile-page {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 15px;
+
+                .main-title-box {
+                    width: auto;
+                    height: auto;
+                    flex-direction: column;
+                    gap: 5px;
+                    
+                    .right-box {
+                        width: 100%;
+                        
+                        .main-title {
+                            color: #181a20;
+                            font-family: $font;
+                            font-size: 24px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            letter-spacing: 0.4px;
+                            text-transform: capitalize;
+                        }
+                        
+                        .sub-title {
+                            color: #181a20;
+                            font-family: $font;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 20px;
+                        }
+                    }
+                }
+
+                .top-box {
+                    width: 100%;
+                    padding: 20px 15px;
+                    margin-top: 15px;
+                    gap: 20px;
+                    border-radius: 8px;
+                    border: 1px solid #c4c4c4;
+                    background: #fff;
+                    box-shadow: 0px 1px 4px 0px rgba(24, 26, 32, 0.07);
+
+                    .photo-box {
+                        gap: 15px;
+                        
+                        .title {
+                            color: #181a20;
+                            font-family: $font;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .image-big-box {
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 20px;
+
+                            .image-box {
+                                position: relative;
+                                width: 120px;
+                                height: 120px;
+                                
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    border-radius: 12px;
+                                }
+                                
+                                .delete-box {
+                                    position: absolute;
+                                    top: 5px;
+                                    right: 5px;
+                                    width: 28px;
+                                    height: 28px;
+                                    background-color: #ffffff;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border-radius: 8px;
+                                }
+                            }
+
+                            .upload-big-box {
+                                align-items: center;
+                                gap: 15px;
+                                width: 100%;
+                                
+                                .labeler {
+                                    display: flex;
+                                    width: 100%;
+                                    max-width: 250px;
+                                    height: 36px;
+                                    justify-content: center;
+                                    align-items: center;
+                                    cursor: pointer;
+                                    border-radius: 8px;
+                                    border: 1px solid #181a20;
+                                    
+                                    p {
+                                        color: #181a20;
+                                        font-family: $font;
+                                        font-size: 11px;
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: normal;
+                                    }
+                                }
+                                
+                                .upload-text {
+                                    color: #181a20;
+                                    font-family: $font;
+                                    font-size: 10px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 18px;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+
+                    .small-input-box {
+                        width: 100%;
+                        height: auto;
+                        flex-direction: column;
+                        gap: 15px;
+                        
+                        .input-box {
+                            width: 100%;
+                            gap: 8px;
+                            
+                            .title {
+                                color: #181a20;
+                                font-family: $font;
+                                font-size: 11px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+                            
+                            input {
+                                height: 48px;
+                                outline: none;
+                                padding: 0px 12px;
+                                border-radius: 6px;
+                                border: 1px solid #ddd;
+                                font-size: 14px;
+                                
+                                ::placeholder {
+                                    color: #717171;
+                                    font-family: $font;
+                                    font-size: 11px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                    }
+
+                    .address-box {
+                        gap: 8px;
+                        
+                        .title {
+                            color: #181a20;
+                            font-family: $font;
+                            font-size: 11px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                        
+                        input {
+                            height: 48px;
+                            outline: none;
+                            padding: 0px 12px;
+                            border-radius: 6px;
+                            border: 1px solid #ddd;
+                            font-size: 14px;
+                            
+                            ::placeholder {
+                                color: #717171;
+                                font-family: $font;
+                                font-size: 11px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 20px;
+                            }
+                        }
+                    }
+
+                    .about-me-box {
+                        gap: 8px;
+                        
+                        .title {
+                            color: #181a20;
+                            font-family: $font;
+                            font-size: 11px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                        
+                        .about-textarea {
+                            height: 120px;
+                            padding: 12px;
+                            border-radius: 6px;
+                            border: 1px solid #ddd;
+                            color: #717171;
+                            font-family: $font;
+                            font-size: 11px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 20px;
+                        }
+                        
+                        .update-button {
+                            display: flex;
+                            width: 100%;
+                            max-width: 150px;
+                            height: 36px;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 8px;
+                            align-self: center;
+                            margin-top: 20px;
+                            border-radius: 8px;
+                            background-color: #000000;
+                            
+                            p {
+                                color: #fff;
+                                font-family: $font;
+                                font-size: 11px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+                            
+                            svg {
+                                width: 10px;
+                                height: 10px;
+                            }
+                        }
+                        
+                        button:disabled {
+                            background: #181a2045;
+                        }
+                    }
+                }
+
+                .bottom-box {
+                    width: 100%;
+                    padding: 20px 15px;
+                    gap: 20px;
+                    border-radius: 8px;
+                    border: 1px solid #c4c4c4;
+                    background: #fff;
+                    box-shadow: 0px 1px 4px 0px rgba(24, 26, 32, 0.07);
+                    
+                    .top-inner-box {
+                        gap: 15px;
+                        
+                        .title {
+                            color: #181a20;
+                            font-family: $font;
+                            font-size: 13px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                        
+                        .old-password-box {
+                            gap: 8px;
+                            
+                            .title {
+                                color: #181a20;
+                                font-family: $font;
+                                font-size: 11px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+                            
+                            input {
+                                width: 100%;
+                                height: 48px;
+                                outline: none;
+                                padding: 0px 12px;
+                                border-radius: 6px;
+                                border: 1px solid #ddd;
+                                
+                                ::placeholder {
+                                    color: #717171;
+                                    font-family: $font;
+                                    font-size: 11px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .bottom-inner-box {
+                        width: 100%;
+                        flex-direction: column;
+                        gap: 15px;
+                        
+                        .new-password-box {
+                            width: 100%;
+                            gap: 8px;
+                            
+                            .title {
+                                color: #181a20;
+                                font-family: $font;
+                                font-size: 11px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+                            
+                            input {
+                                height: 48px;
+                                outline: none;
+                                padding: 0px 12px;
+                                border-radius: 6px;
+                                border: 1px solid #ddd;
+                                
+                                ::placeholder {
+                                    color: #717171;
+                                    font-family: $font;
+                                    font-size: 11px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .change-password {
+                        display: flex;
+                        width: 100%;
+                        max-width: 150px;
+                        height: 36px;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 8px;
+                        align-self: center;
+                        margin-top: 15px;
+                        border-radius: 8px;
+                        background-color: #000000;
+                        
+                        p {
+                            color: #fff;
+                            font-family: $font;
+                            font-size: 11px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
