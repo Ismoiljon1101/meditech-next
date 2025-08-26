@@ -530,7 +530,7 @@ const Filter = (props: FilterType) => {
 								</>
 							}
 						/>
-						<img src={'/img/icons/search_icon.png'} alt={''} />
+						{/* <img src={'/img/icons/search_icon.png'} alt={''} /> */}
 						<Tooltip title="Reset">
 							<IconButton onClick={refreshHandler}>
 								<RefreshIcon />
@@ -568,26 +568,33 @@ const Filter = (props: FilterType) => {
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
 					<Typography className={'title'}>Property Type</Typography>
-					{propertyType.map((type: string) => (
-						<Stack className={'input-box'} key={type}>
-							<Checkbox
-								id={type}
-								className="property-checkbox"
-								color="default"
-								size="small"
-								value={type}
-								onChange={propertyTypeSelectHandler}
-								checked={(searchFilter?.search?.typeList || []).includes(type as PropertyType)}
-							/>
-							<label style={{ cursor: 'pointer' }}>
-								<Typography className="property_type">{type}</Typography>
-							</label>
-						</Stack>
-					))}
+					
+					<div className="type">
+
+						{propertyType.map((type: string) => (
+							<Stack className={'input-box'} key={type}>
+								<Checkbox
+									id={type}
+									className="property-checkbox"
+									color="default"
+									size="small"
+									value={type}
+									onChange={propertyTypeSelectHandler}
+									checked={(searchFilter?.search?.typeList || []).includes(type as PropertyType)}
+								/>
+								<label style={{ cursor: 'pointer' }}>
+									<Typography className="property_type">{type}</Typography>
+								</label>
+							</Stack>
+						))}
+					</div>
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
 					<Typography className={'title'}>Rooms</Typography>
-					<Stack className="button-group">
+					<Stack direction="row" className="button-group" sx={{
+							flexDirection: 'row !important',
+							display: 'flex !important',
+						}} >
 						<Button
 							sx={{
 								borderRadius: '12px 0 0 12px',
@@ -649,9 +656,12 @@ const Filter = (props: FilterType) => {
 						</Button>
 					</Stack>
 				</Stack>
-				<Stack className={'find-your-home'} mb={'30px'}>
+				<Stack className={'find-your-home'} mb={'30px'} 
+				>
 					<Typography className={'title'}>Bedrooms</Typography>
-					<Stack className="button-group">
+					<Stack className="button-group" sx={{
+							flexDirection: 'row !important',
+							display: 'flex !important'}}>
 						<Button
 							sx={{
 								borderRadius: '12px 0 0 12px',
@@ -716,38 +726,45 @@ const Filter = (props: FilterType) => {
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
 					<Typography className={'title'}>Options</Typography>
-					<Stack className={'input-box'}>
-						<Checkbox
-							id={'Barter'}
-							className="property-checkbox"
-							color="default"
-							size="small"
-							value={'propertyBarter'}
-							checked={(searchFilter?.search?.options || []).includes('propertyBarter')}
-							onChange={propertyOptionSelectHandler}
-						/>
-						<label htmlFor={'Barter'} style={{ cursor: 'pointer' }}>
-							<Typography className="propert-type">Barter</Typography>
-						</label>
-					</Stack>
-					<Stack className={'input-box'}>
-						<Checkbox
-							id={'Rent'}
-							className="property-checkbox"
-							color="default"
-							size="small"
-							value={'propertyRent'}
-							checked={(searchFilter?.search?.options || []).includes('propertyRent')}
-							onChange={propertyOptionSelectHandler}
-						/>
-						<label htmlFor={'Rent'} style={{ cursor: 'pointer' }}>
-							<Typography className="propert-type">Rent</Typography>
-						</label>
-					</Stack>
+					<div className="barter" >
+
+						<Stack className={'input-box'}>
+							<Checkbox
+								id={'Barter'}
+								className="property-checkbox"
+								color="default"
+								size="small"
+								value={'propertyBarter'}
+								checked={(searchFilter?.search?.options || []).includes('propertyBarter')}
+								onChange={propertyOptionSelectHandler}
+							/>
+							<label htmlFor={'Barter'} style={{ cursor: 'pointer' }}>
+								<Typography className="propert-type">Barter</Typography>
+							</label>
+						</Stack>
+						<Stack className={'input-box'}>
+							<Checkbox
+								id={'Rent'}
+								className="property-checkbox"
+								color="default"
+								size="small"
+								value={'propertyRent'}
+								checked={(searchFilter?.search?.options || []).includes('propertyRent')}
+								onChange={propertyOptionSelectHandler}
+							/>
+							<label htmlFor={'Rent'} style={{ cursor: 'pointer' }}>
+								<Typography className="propert-type">Rent</Typography>
+							</label>
+						</Stack>
+					</div>
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
 					<Typography className={'title'}>Square meter</Typography>
-					<Stack className="square-year-input">
+					<Stack className="square-year-input" 
+					sx={{
+							flexDirection: 'row !important',
+							display: 'flex !important'}}
+					>
 						<FormControl>
 							<InputLabel id="demo-simple-select-label">Min</InputLabel>
 							<Select
@@ -795,7 +812,11 @@ const Filter = (props: FilterType) => {
 				</Stack>
 				<Stack className={'find-your-home'}>
 					<Typography className={'title'}>Price Range</Typography>
-					<Stack className="square-year-input">
+					<Stack className="square-year-input"
+					sx={{
+							flexDirection: 'row !important',
+							display: 'flex !important'}}
+					>
 						<input
 							type="number"
 							placeholder="$ min"
@@ -877,6 +898,7 @@ const Filter = (props: FilterType) => {
 								setShowMore(false);
 							}
 						}}
+			
 					>
 						{propertyLocation.map((location: string) => {
 							return (
@@ -1059,7 +1081,7 @@ const Filter = (props: FilterType) => {
 							onChange={propertyOptionSelectHandler}
 						/>
 						<label htmlFor={'Barter'} style={{ cursor: 'pointer' }}>
-							<Typography className="propert-type">Barter</Typography>
+							<Typography className="property-type">Barter</Typography>
 						</label>
 					</Stack>
 					<Stack className={'input-box'}>

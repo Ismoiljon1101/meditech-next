@@ -62,15 +62,29 @@
                                 position: relative;
                                 width: 100%;
                                 gap: 6px;
+                                .type{
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    gap: 5px;
+                                }
+                                .barter{
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                }
                                 
                                 .property-location {
 									width: 60%;
 									height: 100%;
 									display: grid;
-									grid-template-columns: repeat(2, 12px);
+									grid-template-columns: repeat(2, 10px);
 									grid-template-rows: repeat(2, auto);
 									justify-content: space-between;
-									gap: 12px;
+                                    align-items: center;
+									gap: 5px;
                                     height: auto;
                                     overflow: visible;
                                     transition: none;
@@ -93,6 +107,8 @@
                                 }
                                 
                                 .title {
+                                    display: flex;
+                                    flex-direction: row;
                                     width: auto;
                                     height: auto;
                                     color: #181a20;
@@ -105,12 +121,18 @@
                                 }
                                 
                                 .input-box {
-                                    // position: relative;
-                                    width: 100%;
-									display: flex !important;
+                                    display: flex !important;
                                     flex-direction: row !important;
-                                    align-items: center;
-                                    margin-bottom: 16px;
+                                    align-items: center !important;
+                                    // justify-content: space-between;
+                                    .center{
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        // justify-content: space-between;
+
+                                    }
+                                    
                                     
                                     svg {
                                         cursor: pointer;
@@ -196,7 +218,7 @@
                                     font-style: normal;
                                     font-weight: 400;
                                     line-height: 19px;
-                                    margin-bottom: 12px;
+                                    // margin-bottom: 12px;
                                 }
                                 
                                 .button-group {
@@ -425,6 +447,7 @@
                                     }
                                     
                                     .type-buttons {
+                                        display:flex;
                                         flex-direction: row;
                                         width: 100%;
                                         justify-content: space-between;
