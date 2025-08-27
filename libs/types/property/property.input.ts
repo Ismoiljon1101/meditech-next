@@ -31,7 +31,7 @@ interface PISearch {
 	text?: string;
 }
 
-export interface PropertiesInquiry {
+export interface InstrumentsInquiry {
 	page: number;
 	limit: number;
 	sort?: string;

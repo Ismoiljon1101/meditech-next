@@ -5,7 +5,7 @@ import CommunityBoards from '../libs/components/homepage/CommunityBoards';
 import PopularProperties from '../libs/components/homepage/PopularProperties';
 import TopAgents from '../libs/components/homepage/TopAgents';
 import Events from '../libs/components/homepage/Events';
-import TrendProperties from '../libs/components/homepage/TrendProperties';
+import TrendInstruments from '../libs/components/homepage/TrendProperties';
 import TopProperties from '../libs/components/homepage/TopProperties';
 import { Stack } from '@mui/material';
 import Advertisement from '../libs/components/homepage/Advertisement';
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 	if (device === 'mobile') {
 		return (
 			<Stack className={'home-page'}>
-				<TrendProperties />
+				<TrendInstruments />
 				<PopularProperties />
 				<Advertisement />
 				<TopProperties />
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
 	} else {
 		return (
 			<Stack className={'home-page'}>
-				<TrendProperties />
+				<TrendInstruments />
 				<PopularProperties />
 				<Advertisement />
 				<TopProperties />

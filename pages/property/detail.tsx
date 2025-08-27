@@ -30,7 +30,7 @@ import 'swiper/css/pagination';
 import { GET_COMMENTS, GET_PROPERTIES, GET_PROPERTY } from '../../apollo/user/query';
 import { T } from '../../libs/types/common';
 import { Direction, Message } from '../../libs/enums/common.enum';
-import { CREATE_COMMENT, LIKE_TARGET_PROPERTY } from '../../apollo/user/mutation';
+import { CREATE_COMMENT, LIKE_TARGET_INSTRUMENTS } from '../../apollo/user/mutation';
 import { sweetErrorHandling, sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../libs/sweetAlert';
 
 
@@ -60,7 +60,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 	});
 
 	/** APOLLO REQUESTS **/
-	const [likeTargetProperty] = useMutation(LIKE_TARGET_PROPERTY);
+	const [likeTargetProperty] = useMutation(LIKE_TARGET_INSTRUMENTS);
 	const [createComment] = useMutation(CREATE_COMMENT);
 	const {
 		loading: getPropertyLoading,

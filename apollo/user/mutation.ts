@@ -180,7 +180,7 @@ export const UPDATE_PROPERTY = gql`
 	}
 `;
 
-export const LIKE_TARGET_PROPERTY = gql`
+export const LIKE_TARGET_INSTRUMENTS = gql`
 	mutation LikeTargetProperty($input: String!) {
 		likeTargetProperty(propertyId: $input) {
 			_id

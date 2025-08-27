@@ -6,7 +6,7 @@ import PropertyCard from '../property/PropertyCard';
 import { Property } from '../../types/property/property';
 import { T } from '../../types/common';
 import { useMutation, useQuery } from '@apollo/client';
-import { LIKE_TARGET_PROPERTY } from '../../../apollo/user/mutation';
+import { LIKE_TARGET_INSTRUMENTS } from '../../../apollo/user/mutation';
 import { GET_FAVORITES } from '../../../apollo/user/query';
 import { sweetErrorHandling, sweetMixinErrorAlert } from '../../sweetAlert';
 import { Messages } from '../../config';
@@ -18,7 +18,7 @@ const MyFavorites: NextPage = () => {
 	const [searchFavorites, setSearchFavorites] = useState<T>({ page: 1, limit: 6 });
 
 	/** APOLLO REQUESTS **/
-	const [likeTargetProperty] = useMutation(LIKE_TARGET_PROPERTY);
+	const [likeTargetProperty] = useMutation(LIKE_TARGET_INSTRUMENTS);
 
 	const {
 		loading: getFavoritesLoading,

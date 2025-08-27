@@ -6,17 +6,17 @@ import EastIcon from '@mui/icons-material/East';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
 import TopPropertyCard from './TopPropertyCard';
-import { PropertiesInquiry } from '../../types/property/property.input';
+import { InstrumentsInquiry } from '../../types/property/property.input';
 import { Property } from '../../types/property/property';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_PROPERTIES } from '../../../apollo/user/query';
 import { T } from '../../types/common';
-import { LIKE_TARGET_PROPERTY } from '../../../apollo/user/mutation';
+import { LIKE_TARGET_INSTRUMENTS } from '../../../apollo/user/mutation';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import { Message } from '../../enums/common.enum';
 
 interface TopPropertiesProps {
-	initialInput: PropertiesInquiry;
+	initialInput: InstrumentsInquiry;
 }
 
 const TopProperties = (props: TopPropertiesProps) => {
@@ -25,7 +25,7 @@ const TopProperties = (props: TopPropertiesProps) => {
 	const [topProperties, setTopProperties] = useState<Property[]>([]);
 
 	/** APOLLO REQUESTS **/
-	const [likeTargetproperty] = useMutation(LIKE_TARGET_PROPERTY);
+	const [likeTargetproperty] = useMutation(LIKE_TARGET_INSTRUMENTS);
 
 	const {
 		loading: getPropertiesLoading,

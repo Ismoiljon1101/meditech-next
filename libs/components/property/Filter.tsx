@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
 import { PropertyLocation, PropertyType } from '../../enums/property.enum';
-import { PropertiesInquiry } from '../../types/property/property.input';
+import { InstrumentsInquiry } from '../../types/property/property.input';
 import { useRouter } from 'next/router';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import { propertySquare } from '../../config';
@@ -29,9 +29,9 @@ const MenuProps = {
 };
 
 interface FilterType {
-	searchFilter: PropertiesInquiry;
+	searchFilter: InstrumentsInquiry;
 	setSearchFilter: any;
-	initialInput: PropertiesInquiry;
+	initialInput: InstrumentsInquiry;
 }
 
 const Filter = (props: FilterType) => {

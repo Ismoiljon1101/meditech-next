@@ -6,13 +6,13 @@ import useDeviceDetect from '../../libs/hooks/useDeviceDetect';
 import withLayoutBasic from '../../libs/components/layout/LayoutBasic';
 import Filter from '../../libs/components/property/Filter';
 import { useRouter } from 'next/router';
-import { PropertiesInquiry } from '../../libs/types/property/property.input';
+import { InstrumentsInquiry } from '../../libs/types/property/property.input';
 import { Property } from '../../libs/types/property/property';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { Direction, Message } from '../../libs/enums/common.enum';
 import { useMutation, useQuery } from '@apollo/client';
-import { LIKE_TARGET_PROPERTY } from '../../apollo/user/mutation';
+import { LIKE_TARGET_INSTRUMENTS } from '../../apollo/user/mutation';
 import { GET_PROPERTIES } from '../../apollo/user/query';
 import { T } from '../../libs/types/common';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../libs/sweetAlert';
@@ -26,7 +26,7 @@ export const getStaticProps = async ({ locale }: any) => ({
 const PropertyList: NextPage = ({ initialInput, ...props }: any) => {
 	const device = useDeviceDetect();
 	const router = useRouter();
-	const [searchFilter, setSearchFilter] = useState<PropertiesInquiry>(
+	const [searchFilter, setSearchFilter] = useState<InstrumentsInquiry>(
 		router?.query?.input ? JSON.parse(router?.query?.input as string) : initialInput,
 	);
 	const [properties, setProperties] = useState<Property[]>([]);
@@ -37,7 +37,7 @@ const PropertyList: NextPage = ({ initialInput, ...props }: any) => {
 	const [filterSortName, setFilterSortName] = useState('New');
 
 		/** APOLLO REQUESTS **/
-		const [likeTargetProperty] = useMutation(LIKE_TARGET_PROPERTY);
+		const [likeTargetProperty] = useMutation(LIKE_TARGET_INSTRUMENTS);
 		const {
 			loading: getPropertiesLoading, //-> loading jarayoni yani backend dan data olish jarayonida qanaqadur animatsiyalarni korsatishimiz mumkun.
 			data: getPropertiesData, //-> data kirib kelgandan keyin onComplete etapi ishga tushadi.
