@@ -50,7 +50,7 @@ const About: NextPage = () => {
 				<Stack className={'statistics'}>
 					<Stack className={'container'}>
 						<Stack className={'banner'}>
-							<img src="/img/banner/header1.svg" alt="" />
+							<img src="/img/banner/header1.webp" alt="" />
 						</Stack>
 						<Stack className={'info'}>
 							<Box component={'div'}>
