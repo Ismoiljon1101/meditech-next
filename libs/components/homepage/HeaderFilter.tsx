@@ -313,6 +313,13 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 			console.log('ERROR, pushSearchHandler:', err);
 		}
 	};
+	const conditionLabels: Record<number, string> = {
+		1: 'satisfying',
+		2: 'not bad',
+		3: 'good',
+		4: 'very good',
+		5: 'almost new',
+	};
 
 	if (device === 'mobile') {
 		return <div>HEADER FILTER MOBILE</div>;
@@ -326,15 +333,17 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 							<ExpandMoreIcon />
 						</Box>
 						<Box className={`box ${openType ? 'on' : ''}`} onClick={typeStateChangeHandler}>
-							<span> {searchFilter?.search?.typeList ? searchFilter?.search?.typeList[0] : t('Property type')} </span>
+							<span> {searchFilter?.search?.typeList ? searchFilter?.search?.typeList[0] : t('Equipment Type')} </span>
 							<ExpandMoreIcon />
 						</Box>
 						<Box className={`box ${openRooms ? 'on' : ''}`} onClick={roomStateChangeHandler}>
 							<span>
-								{searchFilter?.search?.roomsList ? `${searchFilter?.search?.roomsList[0]} rooms}` : t('Rooms')}
+								{searchFilter?.search?.roomsList?.[0] != null
+								? conditionLabels[Number(searchFilter.search.roomsList[0])] || t('Condition')
+								: t('Condition')}
 							</span>
 							<ExpandMoreIcon />
-						</Box>
+							</Box>
 					</Stack>
 					<Stack className={'search-box-other'}>
 						<Box className={'advanced-filter'} onClick={() => advancedFilterHandler(true)}>
@@ -374,9 +383,9 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 
 					<div className={`filter-rooms ${openRooms ? 'on' : ''}`} ref={roomsRef}>
 						{[1, 2, 3, 4, 5].map((room: number) => {
-							return (
+						return (
 								<span onClick={() => propertyRoomSelectHandler(room)} key={room}>
-									{room} room{room > 1 ? 's' : ''}
+									{conditionLabels[room]}
 								</span>
 							);
 						})}
@@ -417,7 +426,9 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 							<div className={'middle'}>
 								<div className={'row-box'}>
 									<div className={'box'}>
-										<span>condition</span>
+										<span>
+										Condition (choose <span style={{ color: 'red' }}>1</span> – <span style={{ color: 'green' }}>5</span>)
+										</span>
 										<div className={'inside'}>
 											<div
 												className={`room ${!searchFilter?.search?.bedsList ? 'active' : ''}`}
