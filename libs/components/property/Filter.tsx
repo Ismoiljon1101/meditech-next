@@ -500,7 +500,7 @@ const Filter = (props: FilterType) => {
 		return(
 			<Stack className={'filter-main'}>
 				<Stack className={'find-your-home'} mb={'40px'}>
-					<Typography className={'title-main'}>Find Your Home</Typography>
+					<Typography className={'title-main'}>Find Your Equipment</Typography>
 					<Stack className={'input-box'}>
 						<OutlinedInput
 							value={searchText}
@@ -590,7 +590,7 @@ const Filter = (props: FilterType) => {
 					</div>
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
-					<Typography className={'title'}>Rooms</Typography>
+					<Typography className={'title'}>Condition</Typography>
 					<Stack direction="row" className="button-group" sx={{
 							flexDirection: 'row !important',
 							display: 'flex !important',
@@ -940,7 +940,7 @@ const Filter = (props: FilterType) => {
 					))}
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
-					<Typography className={'title'}>Rooms</Typography>
+					<Typography className={'title'}>Condition</Typography>
 					<Stack className="button-group">
 						<Button
 							sx={{

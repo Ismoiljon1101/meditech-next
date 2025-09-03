@@ -50,7 +50,7 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 						</div>
 						<div>
 							<img src="/img/icons/room.svg" alt="" />
-							<span>{property.propertyRooms} rooms</span>
+							<span>{property.propertyRooms} condition</span>
 						</div>
 						<div>
 							<img src="/img/icons/expand.svg" alt="" />
@@ -104,7 +104,7 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 						</div>
 						<div>
 							<img src="/img/icons/room.svg" alt="" />
-							<span>{property.propertyRooms} rooms</span>
+							<span>{property.propertyRooms} condition</span>
 						</div>
 						<div>
 							<img src="/img/icons/expand.svg" alt="" />

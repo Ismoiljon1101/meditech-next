@@ -46,18 +46,20 @@ function Pages() {
 
 export default function FiberContainer() {
 	return (
-		<div className="threeJSContainer" style={{ marginTop: '100px', width: '100%', height: '512px' }}>
-			<Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
-				<Suspense fallback={null}>
-					<ScrollControls infinite horizontal damping={4} pages={4} distance={1}>
-						<Scroll>
-							<Pages />
-						</Scroll>
-					</ScrollControls>
-					<Preload />
-				</Suspense>
-			</Canvas>
-		</div>
+		<>
+		</>
+		// <div className="threeJSContainer" style={{ marginTop: '100px', width: '100%', height: '512px' }}>
+		// 	<Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
+		// 		<Suspense fallback={null}>
+		// 			<ScrollControls infinite horizontal damping={4} pages={4} distance={1}>
+		// 				<Scroll>
+		// 					<Pages />
+		// 				</Scroll>
+		// 			</ScrollControls>
+		// 			<Preload />
+		// 		</Suspense>
+		// 	</Canvas>
+		// </div>
 
 	);
 }

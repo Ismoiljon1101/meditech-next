@@ -325,7 +325,7 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 
 							<Stack className="config-row">
 								<Stack className="price-year-after-price">
-									<Typography className="title">Rooms</Typography>
+									<Typography className="title">Condition</Typography>
 									<select
 										className={'select-description'}
 										value={insertPropertyData.propertyRooms || 'select'}
