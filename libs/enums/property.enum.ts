@@ -1,7 +1,7 @@
 export enum PropertyType {
-	APARTMENT = 'APARTMENT',
-	VILLA = 'VILLA',
-	HOUSE = 'HOUSE',
+	DIAGNOSTIC = 'DIAGNOSTIC',
+	TREATMENT = 'TREATMENT',
+	AUXILIARY = 'AUXILIARY',
 }
 
 export enum PropertyStatus {
