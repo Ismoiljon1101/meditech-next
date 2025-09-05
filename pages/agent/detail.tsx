@@ -260,7 +260,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 				) : (
 					<div className="no-data" role="status" aria-live="polite">
 					<img src="/img/icons/icoAlert.svg" alt="" />
-					<p>No properties found!</p>
+					<p>No Instruments found!</p>
 					</div>
 				)}
 				</Stack>
@@ -394,7 +394,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 							) : (
 								<div className={'no-data'}>
 									<img src="/img/icons/icoAlert.svg" alt="" />
-									<p>No properties found!</p>
+									<p>No Instruments found!</p>
 								</div>
 							)}
 						</Stack>

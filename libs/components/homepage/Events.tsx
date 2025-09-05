@@ -10,29 +10,31 @@ interface EventData {
 }
 const eventsData: EventData[] = [
 	{
-		eventTitle: 'Paradise City Theme Park',
+		eventTitle: 'CardioCheck ECG Device Demo',
 		city: 'Incheon',
 		description:
-			'Experience magic and wonder in Incheon with a visit to the night-themed indoor theme park Wonderbox at Paradise City!',
+			'Join the live demonstration of the latest CardioCheck ECG devices at Incheon Medical Expo and learn about advanced heart monitoring technology!',
 		imageSrc: '/img/events/INCHEON.webp',
 	},
 	{
-		eventTitle: 'Taebaeksan Snow Festival',
+		eventTitle: 'Seoul Pharma Conference',
 		city: 'Seoul',
-		description: 'If you have the opportunity to travel to South Korea, do not miss the Taebaeksan Snow Festival!',
+		description:
+			'Explore cutting-edge pharmaceutical innovations and attend lectures on new drug developments at the Seoul Pharma Conference!',
 		imageSrc: '/img/events/SEOUL.webp',
 	},
 	{
-		eventTitle: 'Suseong Lake Event',
+		eventTitle: 'Daegu Medical Tech Fair',
 		city: 'Daegu',
-		description: 'The Suseong Lake Festival is a culture and arts festival held alongside Suseongmot Lake!',
+		description:
+			'Discover the newest medical devices and healthcare technologies at the Daegu Medical Tech Fair held in the city center!',
 		imageSrc: '/img/events/DAEGU.webp',
 	},
 	{
-		eventTitle: 'Sand Festival',
+		eventTitle: 'Busan Healthcare Symposium',
 		city: 'Busan',
 		description:
-			'Haeundae Sand Festival, the nation’s largest eco-friendly exhibition on sand, is held at Haeundae Beach!',
+			'Attend workshops and seminars on advanced healthcare solutions and medical instruments at the Busan Healthcare Symposium!',
 		imageSrc: '/img/events/BUSAN.webp',
 	},
 ];
