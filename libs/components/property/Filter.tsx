@@ -658,7 +658,7 @@ const Filter = (props: FilterType) => {
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'} 
 				>
-					<Typography className={'title'}>Bedrooms</Typography>
+					<Typography className={'title'}>Quantity</Typography>
 					<Stack className="button-group" sx={{
 							flexDirection: 'row !important',
 							display: 'flex !important'}}>
@@ -1004,7 +1004,7 @@ const Filter = (props: FilterType) => {
 					</Stack>
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
-					<Typography className={'title'}>Bedrooms</Typography>
+					<Typography className={'title'}>Quantity</Typography>
 					<Stack className="button-group">
 						<Button
 							sx={{

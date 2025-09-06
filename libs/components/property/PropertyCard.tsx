@@ -69,13 +69,26 @@ const PropertyCard = (props: PropertyCardType) => {
 					</Stack>
 					<Stack className="options">
 						<Stack className="option">
-							<img src="/img/icons/bed.svg" alt="" /> <Typography>{property.propertyBeds} bed</Typography>
+							<img src="/img/icons/bed.svg" alt="" /> 
+							<Typography>
+								{property?.propertyBeds === 1
+									? "Satisfying"
+									: property?.propertyBeds === 2
+									? "Not Bad"
+									: property?.propertyBeds === 3
+									? "Good"
+									: property?.propertyBeds === 4
+									? "Very Good"
+									: property?.propertyBeds === 5
+									? "Almost New or almost"
+									: "Unknown"} Condition
+								</Typography>
 						</Stack>
 						<Stack className="option">
-							<img src="/img/icons/room.svg" alt="" /> <Typography>{property.propertyRooms} condition</Typography>
+							<img src="/img/icons/room.svg" alt="" /> <Typography>{property.propertyRooms} Quantity</Typography>
 						</Stack>
 						<Stack className="option">
-							<img src="/img/icons/expand.svg" alt="" /> <Typography>{property.propertySquare} m2</Typography>
+							<img src="/img/icons/expand.svg" alt="" /> <Typography>{property.propertySquare} m3</Typography>
 						</Stack>
 					</Stack>
 					<Stack className="divider"></Stack>
@@ -158,13 +171,25 @@ const PropertyCard = (props: PropertyCardType) => {
 					</Stack>
 					<Stack className="options">
 						<Stack className="option">
-							<img src="/img/icons/bed.svg" alt="" /> <Typography>{property.propertyBeds} bed</Typography>
+							<img src="/img/icons/bed.svg" alt="" /> <Typography>
+							{property?.propertyBeds === 1
+							? "Satisfying"
+							: property?.propertyBeds === 2
+							? "Not Bad"
+							: property?.propertyBeds === 3
+							? "Good"
+							: property?.propertyBeds === 4
+							? "Very Good"
+							: property?.propertyBeds === 5
+							? "Almost New or almost"
+							: "Unknown"} Condition
+						</Typography>
 						</Stack>
 						<Stack className="option">
-							<img src="/img/icons/room.svg" alt="" /> <Typography>{property.propertyRooms} condition</Typography>
+							<img src="/img/icons/room.svg" alt="" /> <Typography>{property.propertyRooms} Quantity</Typography>
 						</Stack>
 						<Stack className="option">
-							<img src="/img/icons/expand.svg" alt="" /> <Typography>{property.propertySquare} m2</Typography>
+							<img src="/img/icons/expand.svg" alt="" /> <Typography>{property.propertySquare} m3</Typography>
 						</Stack>
 					</Stack>
 					<Stack className="divider"></Stack>

@@ -65,15 +65,27 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 				<div className="options">
 					<div className="option">
 					<img src="/img/icons/bed.svg" alt="" aria-hidden="true" />
-					<span>{property?.propertyBeds} bed</span>
+							<span>
+								{property?.propertyRooms === 1
+								? " Satisfying"
+								: property?.propertyRooms === 2
+								? " Not Bad"
+								: property?.propertyRooms === 3
+								? " Good"
+								: property?.propertyRooms === 4
+								? " Very Good"
+								: property?.propertyRooms === 5
+								? " Almost New"
+								: " Unknown"}
+							</span>
 					</div>
 					<div className="option">
 					<img src="/img/icons/room.svg" alt="" aria-hidden="true" />
-					<span>{property?.propertyRooms} condition</span>
+					<span>{property?.propertyRooms} Quantity</span>
 					</div>
 					<div className="option">
 					<img src="/img/icons/expand.svg" alt="" aria-hidden="true" />
-					<span>{property?.propertySquare} m2</span>
+					<span>{property?.propertySquare} m3</span>
 					</div>
 				</div>
 
@@ -134,15 +146,27 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 					<div className={'options'}>
 						<div>
 							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property?.propertyBeds} bed</span>
+														<span>
+								{property?.propertyRooms === 1
+								? " Satisfying"
+								: property?.propertyRooms === 2
+								? " Not Bad"
+								: property?.propertyRooms === 3
+								? " Good"
+								: property?.propertyRooms === 4
+								? " Very Good"
+								: property?.propertyRooms === 5
+								? " Almost New"
+								: " Unknown"}
+							</span>
 						</div>
 						<div>
 							<img src="/img/icons/room.svg" alt="" />
-							<span>{property?.propertyRooms} condition</span>
+							<span>{property?.propertyRooms} Quantity</span>
 						</div>
 						<div>
 							<img src="/img/icons/expand.svg" alt="" />
-							<span>{property?.propertySquare} m2</span>
+							<span>{property?.propertySquare} m3</span>
 						</div>
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />

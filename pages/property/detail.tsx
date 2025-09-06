@@ -262,13 +262,25 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 									</Stack>
 									<Stack className={'bottom-box'}>
 										<Stack className="option">
-											<img src="/img/icons/bed.svg" alt="" /> <Typography>{property?.propertyBeds} bed</Typography>
+											<img src="/img/icons/bed.svg" alt="" />  <Typography>
+    {property?.propertyRooms === 1
+      ? " Satisfying"
+      : property?.propertyRooms === 2
+      ? " Not Bad"
+      : property?.propertyRooms === 3
+      ? " Good"
+      : property?.propertyRooms === 4
+      ? " Very Good"
+      : property?.propertyRooms === 5
+      ? " Almost New or New"
+      : " Unknown"}
+  </Typography>
 										</Stack>
 										<Stack className="option">
-											<img src="/img/icons/room.svg" alt="" /> <Typography>{property?.propertyRooms} condition</Typography>
+											<img src="/img/icons/room.svg" alt="" /> <Typography>{property?.propertyRooms} Quantity</Typography>
 										</Stack>
 										<Stack className="option">
-											<img src="/img/icons/expand.svg" alt="" /> <Typography>{property?.propertySquare} m2</Typography>
+											<img src="/img/icons/expand.svg" alt="" /> <Typography>{property?.propertySquare} m3</Typography>
 										</Stack>
 									</Stack>
 								</Stack>
@@ -329,8 +341,20 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 											</svg>
 										</Stack>
 										<Stack className={'option-includes'}>
-											<Typography className={'title'}>Bedroom</Typography>
-											<Typography className={'option-data'}>{property?.propertyBeds}</Typography>
+											<Typography className={'title'}>condition</Typography>
+											<Typography className={'option-data'}>
+												{property?.propertyBeds === 1
+												? "Satisfying"
+												: property?.propertyBeds === 2
+												? "Not Bad"
+												: property?.propertyBeds === 3
+												? "Good"
+												: property?.propertyBeds === 4
+												? "Very Good"
+												: property?.propertyBeds === 5
+												? "Almost New or almost"
+												: "Unknown"} Condition
+											</Typography>
 										</Stack>
 									</Stack>
 									<Stack className={'option'}>
@@ -338,7 +362,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 											<img src={'/img/icons/room.svg'} />
 										</Stack>
 										<Stack className={'option-includes'}>
-											<Typography className={'title'}>Condition</Typography>
+											<Typography className={'title'}>Quantity</Typography>
 											<Typography className={'option-data'}>{property?.propertyRooms}</Typography>
 										</Stack>
 									</Stack>
@@ -356,7 +380,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 											</svg>
 										</Stack>
 										<Stack className={'option-includes'}>
-											<Typography className={'title'}>Year Build</Typography>
+											<Typography className={'title'}>Made in</Typography>
 											<Typography className={'option-data'}>{moment(property?.createdAt).format('YYYY')}</Typography>
 										</Stack>
 									</Stack>
@@ -385,7 +409,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 										</Stack>
 										<Stack className={'option-includes'}>
 											<Typography className={'title'}>Size</Typography>
-											<Typography className={'option-data'}>{property?.propertySquare} m2</Typography>
+											<Typography className={'option-data'}>{property?.propertySquare} m3</Typography>
 										</Stack>
 									</Stack>
 									<Stack className={'option'}>
@@ -406,7 +430,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 								</Stack>
 								<Stack className={'prop-desc-config'}>
 									<Stack className={'top'}>
-										<Typography className={'title'}>Property Description</Typography>
+										<Typography className={'title'}>Equipment Description</Typography>
 										<Typography className={'desc'}>{property?.propertyDesc ?? 'No Description!'}</Typography>
 									</Stack>
 									<Stack className={'bottom'}>
@@ -419,15 +443,27 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 												</Box>
 												<Box component={'div'} className={'info'}>
 													<Typography className={'title'}>Equipment Size</Typography>
-													<Typography className={'data'}>{property?.propertySquare} m2</Typography>
+													<Typography className={'data'}>{property?.propertySquare} m3</Typography>
 												</Box>
 												<Box component={'div'} className={'info'}>
-													<Typography className={'title'}>Condition</Typography>
+													<Typography className={'title'}>Quantity</Typography>
 													<Typography className={'data'}>{property?.propertyRooms}</Typography>
 												</Box>
 												<Box component={'div'} className={'info'}>
-													<Typography className={'title'}>Bedrooms</Typography>
-													<Typography className={'data'}>{property?.propertyBeds}</Typography>
+													<Typography className={'title'}>Condition</Typography>
+													<Typography className={'data'}>
+														{property?.propertyBeds === 1
+														? "Satisfying"
+														: property?.propertyBeds === 2
+														? "Not Bad"
+														: property?.propertyBeds === 3
+														? "Good"
+														: property?.propertyBeds === 4
+														? "Very Good"
+														: property?.propertyBeds === 5
+														? "Almost New or almost"
+														: "Unknown"} Condition
+													</Typography>
 												</Box>
 											</Stack>
 											<Stack className={'right'}>
@@ -440,7 +476,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 													<Typography className={'data'}>{property?.propertyType}</Typography>
 												</Box>
 												<Box component={'div'} className={'info'}>
-													<Typography className={'title'}>Property Options</Typography>
+													<Typography className={'title'}>Equipment Options</Typography>
 													<Typography className={'data'}>
 														For: {property?.propertyBarter &&  'Barter'} {property?.propertyRent && 'Rent'}
 													</Typography>
@@ -449,12 +485,12 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 										</Stack>
 									</Stack>
 								</Stack>
-								<Stack className={'floor-plans-config'}>
+								{/* {/* <Stack className={'floor-plans-config'}>
 									<Typography className={'title'}>Floor Plans</Typography>
 									<Stack className={'image-box'}>
 										<img src={'/img/property/floorPlan.png'} alt={'image'} />
 									</Stack>
-								</Stack>
+								</Stack> */} 
 								<Stack className={'address-config'}>
 									<Typography className={'title'}>Address</Typography>
 									<Stack className={'map-box'}>
@@ -673,13 +709,27 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 									</Stack>
 									<Stack className={'bottom-box'}>
 										<Stack className="option">
-											<img src="/img/icons/bed.svg" alt="" /> <Typography>{property?.propertyBeds} bed</Typography>
+											<img src="/img/icons/bed.svg" alt="" />  
+											<Typography>
+												{property?.propertyRooms === 1
+												? " Satisfying"
+												: property?.propertyRooms === 2
+												? " Not Bad"
+												: property?.propertyRooms === 3
+												? " Good"
+												: property?.propertyRooms === 4
+												? " Very Good"
+												: property?.propertyRooms === 5
+												? " Almost New or New"
+												: " Unknown"}
+											</Typography>
 										</Stack>
 										<Stack className="option">
-											<img src="/img/icons/room.svg" alt="" /> <Typography>{property?.propertyRooms} condition</Typography>
+											<img src="/img/icons/room.svg" alt="" /> <Typography>
+												{property?.propertyRooms} Quantity</Typography>
 										</Stack>
 										<Stack className="option">
-											<img src="/img/icons/expand.svg" alt="" /> <Typography>{property?.propertySquare} m2</Typography>
+											<img src="/img/icons/expand.svg" alt="" /> <Typography>{property?.propertySquare} m3</Typography>
 										</Stack>
 									</Stack>
 								</Stack>
@@ -737,8 +787,20 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 											</svg>
 										</Stack>
 										<Stack className={'option-includes'}>
-											<Typography className={'title'}>Bedroom</Typography>
-											<Typography className={'option-data'}>{property?.propertyBeds}</Typography>
+											<Typography className={'title'}>Condition</Typography>
+											<Typography className={'option-data'}>
+												{property?.propertyBeds === 1
+												? "Satisfying"
+												: property?.propertyBeds === 2
+												? "Not Bad"
+												: property?.propertyBeds === 3
+												? "Good"
+												: property?.propertyBeds === 4
+												? "Very Good"
+												: property?.propertyBeds === 5
+												? "Almost New or almost"
+												: "Unknown"} Condition
+											</Typography>
 										</Stack>
 									</Stack>
 									<Stack className={'option'}>
@@ -746,7 +808,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 											<img src={'/img/icons/room.svg'} />
 										</Stack>
 										<Stack className={'option-includes'}>
-											<Typography className={'title'}>Condition</Typography>
+											<Typography className={'title'}>Quantity</Typography>
 											<Typography className={'option-data'}>{property?.propertyRooms}</Typography>
 										</Stack>
 									</Stack>
@@ -764,7 +826,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 											</svg>
 										</Stack>
 										<Stack className={'option-includes'}>
-											<Typography className={'title'}>Year Build</Typography>
+											<Typography className={'title'}>Made in</Typography>
 											<Typography className={'option-data'}>{moment(property?.createdAt).format('YYYY')}</Typography>
 										</Stack>
 									</Stack>
@@ -793,7 +855,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 										</Stack>
 										<Stack className={'option-includes'}>
 											<Typography className={'title'}>Size</Typography>
-											<Typography className={'option-data'}>{property?.propertySquare} m2</Typography>
+											<Typography className={'option-data'}>{property?.propertySquare} m3</Typography>
 										</Stack>
 									</Stack>
 									<Stack className={'option'}>
@@ -814,7 +876,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 								</Stack>
 								<Stack className={'prop-desc-config'}>
 									<Stack className={'top'}>
-										<Typography className={'title'}>Property Description</Typography>
+										<Typography className={'title'}>Equipment Description</Typography>
 										<Typography className={'desc'}>{property?.propertyDesc ?? 'No Description!'}</Typography>
 									</Stack>
 									<Stack className={'bottom'}>
@@ -827,15 +889,27 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 												</Box>
 												<Box component={'div'} className={'info'}>
 													<Typography className={'title'}>Property Size</Typography>
-													<Typography className={'data'}>{property?.propertySquare} m2</Typography>
+													<Typography className={'data'}>{property?.propertySquare} m3</Typography>
 												</Box>
 												<Box component={'div'} className={'info'}>
-													<Typography className={'title'}>Condition</Typography>
+													<Typography className={'title'}>Quantity</Typography>
 													<Typography className={'data'}>{property?.propertyRooms}</Typography>
 												</Box>
 												<Box component={'div'} className={'info'}>
-													<Typography className={'title'}>Bedrooms</Typography>
-													<Typography className={'data'}>{property?.propertyBeds}</Typography>
+													<Typography className={'title'}>Condition</Typography>
+													<Typography className={'data'}>
+														{property?.propertyBeds === 1
+														? "Satisfying"
+														: property?.propertyBeds === 2
+														? "Not Bad"
+														: property?.propertyBeds === 3
+														? "Good"
+														: property?.propertyBeds === 4
+														? "Very Good"
+														: property?.propertyBeds === 5
+														? "Almost New or almost"
+														: "Unknown"} Condition
+													</Typography>
 												</Box>
 											</Stack>
 											<Stack className={'right'}>
@@ -848,7 +922,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 													<Typography className={'data'}>{property?.propertyType}</Typography>
 												</Box>
 												<Box component={'div'} className={'info'}>
-													<Typography className={'title'}>Property Options</Typography>
+													<Typography className={'title'}>Equipment Options</Typography>
 													<Typography className={'data'}>
 														For {property?.propertyBarter && 'Barter'} {property?.propertyRent && 'Rent'}
 													</Typography>
@@ -857,12 +931,12 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 										</Stack>
 									</Stack>
 								</Stack>
-								<Stack className={'floor-plans-config'}>
+								{/* <Stack className={'floor-plans-config'}>
 									<Typography className={'title'}>Floor Plans</Typography>
 									<Stack className={'image-box'}>
 										<img src={'/img/property/floorPlan.png'} alt={'image'} />
 									</Stack>
-								</Stack>
+								</Stack> */}
 								<Stack className={'address-config'}>
 									<Typography className={'title'}>Address</Typography>
 									<Stack className={'map-box'}>
@@ -1022,7 +1096,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 							<Stack className={'similar-properties-config'}>
 								<Stack className={'title-pagination-box'}>
 									<Stack className={'title-box'}>
-										<Typography className={'main-title'}>Destination Property</Typography>
+										<Typography className={'main-title'}>Destination Equipment</Typography>
 										<Typography className={'sub-title'}>Aliquam lacinia diam quis lacus euismod</Typography>
 									</Stack>
 									<Stack className={'pagination-box'}>

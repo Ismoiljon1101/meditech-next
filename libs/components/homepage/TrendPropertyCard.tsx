@@ -46,15 +46,27 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 					<div className={'options'}>
 						<div>
 							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property.propertyBeds} bed</span>
+							<span>
+								{property?.propertyBeds === 1
+									? "Satisfying"
+									: property?.propertyBeds === 2
+									? "Not Bad"
+									: property?.propertyBeds === 3
+									? "Good"
+									: property?.propertyBeds === 4
+									? "Very Good"
+									: property?.propertyBeds === 5
+									? "Almost New or almost"
+									: "Unknown"} Condition
+								</span>
 						</div>
 						<div>
 							<img src="/img/icons/room.svg" alt="" />
-							<span>{property.propertyRooms} condition</span>
+							<span>{property.propertyRooms} Quantity</span>
 						</div>
 						<div>
 							<img src="/img/icons/expand.svg" alt="" />
-							<span>{property.propertySquare} m2</span>
+							<span>{property.propertySquare} m3</span>
 						</div>
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
@@ -100,15 +112,27 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 					<div className={'options'}>
 						<div>
 							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property.propertyBeds} bed</span>
+							<span>
+								{property?.propertyBeds === 1
+								? "Satisfying"
+								: property?.propertyBeds === 2
+								? "Not Bad"
+								: property?.propertyBeds === 3
+								? "Good"
+								: property?.propertyBeds === 4
+								? "Very Good"
+								: property?.propertyBeds === 5
+								? "Almost New or almost"
+								: "Unknown"} Condition
+							</span>
 						</div>
 						<div>
 							<img src="/img/icons/room.svg" alt="" />
-							<span>{property.propertyRooms} condition</span>
+							<span>{property.propertyRooms} Quantity</span>
 						</div>
 						<div>
 							<img src="/img/icons/expand.svg" alt="" />
-							<span>{property.propertySquare} m2</span>
+							<span>{property.propertySquare} m3</span>
 						</div>
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />

@@ -76,7 +76,7 @@ const MyMenu = () => {
 			// 										<img className={'com-icon'} src={'/img/icons/newTab.svg'} alt={'com_icon'} />
 			// 									)}
 			// 									<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-			// 										Add Property
+			// 										Add instrument
 			// 									</Typography>
 			// 									<IconButton aria-label="delete" sx={{ ml: '40px' }}>
 			// 										<PortraitIcon style={{ color: 'red' }} />
@@ -99,7 +99,7 @@ const MyMenu = () => {
 			// 										<img className={'com-icon'} src={'/img/icons/home.svg'} alt={'com-icon'} />
 			// 									)}
 			// 									<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-			// 										My Properties
+			// 										My Instruments
 			// 									</Typography>
 			// 									<IconButton aria-label="delete" sx={{ ml: '36px' }}>
 			// 										<PortraitIcon style={{ color: 'red' }} />
@@ -385,7 +385,7 @@ const MyMenu = () => {
 													<img className={'com-icon'} src={'/img/icons/newTab.svg'} alt={'com_icon'} />
 												)}
 												<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-													Add Property
+													Add instrument
 												</Typography>
 												<IconButton aria-label="delete" sx={{ ml: '40px' }}>
 													<PortraitIcon style={{ color: 'red' }} />
@@ -408,7 +408,7 @@ const MyMenu = () => {
 													<img className={'com-icon'} src={'/img/icons/home.svg'} alt={'com-icon'} />
 												)}
 												<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-													My Properties
+													My Instruments
 												</Typography>
 												<IconButton aria-label="delete" sx={{ ml: '36px' }}>
 													<PortraitIcon style={{ color: 'red' }} />
