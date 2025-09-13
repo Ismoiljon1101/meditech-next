@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
-import { Button, ListItem, Stack, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import axios from 'axios';
 import { Messages, REACT_APP_API_URL } from '../../config';
 import { getJwtToken, updateStorage, updateUserInfo } from '../../auth';
@@ -108,28 +108,6 @@ const MyProfile: NextPage = ({ initialValues, ...props }: any) => {
 		}
 	};
 
-	const logoutHandler = useCallback(() => {
-		// Clear user data and redirect to login or home page
-		updateStorage({ jwtToken: '' });
-		userVar({
-			_id: '',
-			memberType: '',
-			memberStatus: '',
-			memberAuthType: '',
-			memberPhone: '',
-			memberNick: '',
-			memberProperties: 0,
-			memberRank: 0,
-			memberArticles: 0,
-			memberPoints: 0,
-			memberLikes: 0,
-			memberViews: 0,
-			memberWarnings: 0,
-			memberBlocks: 0
-		});
-		window.location.href = 'account/join';
-	}, []);
-
 	console.log('+updateData', updateData);
 
 	if (device === 'mobile') {
@@ -140,14 +118,6 @@ const MyProfile: NextPage = ({ initialValues, ...props }: any) => {
 						<Typography className="main-title">My Profile</Typography>
 						<Typography className="sub-title">We are glad to see you again!</Typography>
 					</Stack>
-					{/* <ListItem onClick={logoutHandler}>
-								<div className={'flex-box'}>
-									<img className={'com-icon'} src={'/img/icons/logout.svg'} alt={'com-icon'} />
-									<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-										Logout
-									</Typography>
-								</div>
-					</ListItem> */}
 				</Stack>
 				<Stack className="top-box">
 					<Stack className="photo-box">
@@ -217,19 +187,15 @@ const MyProfile: NextPage = ({ initialValues, ...props }: any) => {
 										fill="white"
 									/>
 								</g>
+								<defs>
+									<clipPath id="clip0_7065_6985">
+										<rect width="13" height="13" fill="white" />
+									</clipPath>
+								</defs>
 							</svg>
 						</Button>
-
-						<div className="logout-btn" onClick={logoutHandler}>
-							<img className="com-icon" src="/img/icons/logout.svg" alt="logout-icon" />
-							<Typography className="sub-title" variant="subtitle1" component="p">
-								Logout
-							</Typography>
-						</div>
 					</Stack>
-
 				</Stack>
-
 			</div>
 		);
 	} else

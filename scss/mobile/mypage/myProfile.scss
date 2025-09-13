@@ -202,13 +202,31 @@
                     }
 
                     .about-me-box {
-                        display: flex !important;
-                        align-items: center !important;
-                        justify-content: center !important;
-                        gap: 8px; // space between buttons
-
-                        .update-button,
-                        .logout-btn {
+                        gap: 8px;
+                        
+                        .title {
+                            color: #181a20;
+                            font-family: $font;
+                            font-size: 11px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                        
+                        .about-textarea {
+                            height: 120px;
+                            padding: 12px;
+                            border-radius: 6px;
+                            border: 1px solid #ddd;
+                            color: #717171;
+                            font-family: $font;
+                            font-size: 11px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 20px;
+                        }
+                        
+                        .update-button {
                             display: flex;
                             width: 100%;
                             max-width: 150px;
@@ -216,48 +234,30 @@
                             justify-content: center;
                             align-items: center;
                             gap: 8px;
-                            border-radius: 8px;
                             align-self: center;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: background-color 0.2s ease, transform 0.1s ease;
-
-                            p, 
-                            .sub-title {
+                            margin-top: 20px;
+                            border-radius: 8px;
+                            background-color: #000000;
+                            
+                            p {
+                                color: #fff;
                                 font-family: $font;
                                 font-size: 11px;
                                 font-style: normal;
                                 font-weight: 600;
                                 line-height: normal;
-                                color: #fff;
                             }
-
-                            img, 
+                            
                             svg {
                                 width: 10px;
                                 height: 10px;
-                                filter: invert(1);
                             }
                         }
-
-                        .update-button {
-                            background-color: #000000;
-                        }
-
-                        .logout-btn {
-                            background-color: #e53935;
-
-                            &:hover {
-                                background-color: #d32f2f;
-                                transform: scale(1.03);
-                            }
-                        }
-
+                        
                         button:disabled {
                             background: #181a2045;
                         }
                     }
-
                 }
 
                 .bottom-box {

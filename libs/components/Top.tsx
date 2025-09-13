@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter, withRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { getJwtToken, logOut, updateUserInfo } from '../auth';
-import { Stack, Box, IconButton } from '@mui/material';
+import { Stack, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import { alpha, styled } from '@mui/material/styles';
@@ -16,8 +16,7 @@ import {
   Apartment,
   AccountCircleOutlined,
   LiveHelp,
-  AccountCircle,
-  Login, 
+  AccountCircle, 
 } from '@mui/icons-material';
 
 
@@ -176,19 +175,11 @@ const Top = () => {
 						<LiveHelp />
 						{/* <div> {t('CS')} </div> */}
 					</Link>
-					{user?._id ? (
-						<Link href="/mypage" aria-label="My Page">
-						<AccountCircle />
-						</Link>
-					) : (
-						<IconButton
-						aria-label="Login or Register"
-						onClick={() => router.push("/account/join")}
-						>
-						<Login />
-						{/* Or show both icons, or text, as preferred */}
-						{/* <PersonAdd /> */}
-						</IconButton>
+					{user?._id && (
+						<Link href={'/mypage'}>
+							<AccountCircle />
+							{/* <div> {t('My Page')} </div> */}
+					</Link>
 					)}
 				</Stack>
 			</Stack>
