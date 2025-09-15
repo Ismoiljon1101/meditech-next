@@ -8,13 +8,17 @@ export default function Document() {
 				<link rel="icon" type="image/png" href="/img/logo/favicon.svg" />
 
 				{/* SEO */}
-				<meta name="keyword" content={'nestar, nestar.uz, devex mern, mern nestjs fullstack'} />
 				<meta
-					name={'description'}
+					name="keywords"
+					content="meditech, medical equipment, buy medical tools, sell medical instruments, rent medical devices, barter medical equipment"
+				/>
+				<meta
+					name="description"
 					content={
-						'Buy and sell properties anywhere anytime in South Korea. Best Properties at Best prices on nestar.uz | ' +
-						'Покупайте и продавайте недвижимость в любой точке Южной Кореи в любое время. Лучшая недвижимость по лучшим ценам на nestar.uz | ' +
-						'대한민국 언제 어디서나 부동산을 사고팔 수 있습니다. Nestar.uz에서 최적의 가격으로 최고의 부동산을 만나보세요'
+						'Buy, sell, rent, or barter medical tools and equipment safely and conveniently. ' +
+						'Meditech is your trusted platform for new, used, and professional medical devices. | ' +
+						'Медтех – безопасная платформа для покупки, продажи, аренды и обмена медицинских инструментов и оборудования. | ' +
+						'메디테크 – 안전하게 의료 도구 및 장비를 사고, 팔고, 대여하거나 교환할 수 있는 신뢰 플랫폼입니다.'
 					}
 				/>
 			</Head>
