@@ -80,7 +80,7 @@ const PropertyCard = (props: PropertyCardType) => {
 									: property?.propertyBeds === 4
 									? "Very Good"
 									: property?.propertyBeds === 5
-									? "Almost New or almost"
+									? "in New"
 									: "Unknown"} Condition
 								</Typography>
 						</Stack>
@@ -181,7 +181,7 @@ const PropertyCard = (props: PropertyCardType) => {
 							: property?.propertyBeds === 4
 							? "Very Good"
 							: property?.propertyBeds === 5
-							? "Almost New or almost"
+							? "in New"
 							: "Unknown"} Condition
 						</Typography>
 						</Stack>

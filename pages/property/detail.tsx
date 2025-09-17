@@ -352,7 +352,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 												: property?.propertyBeds === 4
 												? "Very Good"
 												: property?.propertyBeds === 5
-												? "Almost New or almost"
+												? "in New"
 												: "Unknown"} Condition
 											</Typography>
 										</Stack>
@@ -461,7 +461,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 														: property?.propertyBeds === 4
 														? "Very Good"
 														: property?.propertyBeds === 5
-														? "Almost New or almost"
+														? "in New"
 														: "Unknown"} Condition
 													</Typography>
 												</Box>
@@ -798,7 +798,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 												: property?.propertyBeds === 4
 												? "Very Good"
 												: property?.propertyBeds === 5
-												? "Almost New or almost"
+												? "in New"
 												: "Unknown"} Condition
 											</Typography>
 										</Stack>
@@ -907,7 +907,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 														: property?.propertyBeds === 4
 														? "Very Good"
 														: property?.propertyBeds === 5
-														? "Almost New or almost"
+														? "in New"
 														: "Unknown"} Condition
 													</Typography>
 												</Box>

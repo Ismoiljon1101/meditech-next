@@ -56,7 +56,7 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 									: property?.propertyBeds === 4
 									? "Very Good"
 									: property?.propertyBeds === 5
-									? "Almost New or almost"
+									? "in New"
 									: "Unknown"} Condition
 								</span>
 						</div>
@@ -122,7 +122,7 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 								: property?.propertyBeds === 4
 								? "Very Good"
 								: property?.propertyBeds === 5
-								? "Almost New or almost"
+								? "in New"
 								: "Unknown"} Condition
 							</span>
 						</div>
