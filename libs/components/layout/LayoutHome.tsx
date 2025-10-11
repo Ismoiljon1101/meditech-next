@@ -32,7 +32,7 @@ const withLayoutMain = (Component: any) => {
 				<>
 					<Head>
 						<title>MediTech</title>
-						<meta name={'title'} content={`Nestar`} />
+						<meta name={'title'} content={`MediTech`} />
 					</Head>
 					<Stack id="mobile-wrap">
 						<Stack id={'top'}>
@@ -54,7 +54,7 @@ const withLayoutMain = (Component: any) => {
 				<>
 					<Head>
 						<title>MediTech</title>
-						<meta name={'title'} content={`Nestar`} />
+						<meta name={'title'} content={`MediTech`} />
 					</Head>
 					<Stack id="pc-wrap">
 						<Stack id={'top'}>
