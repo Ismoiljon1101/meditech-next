@@ -35,22 +35,22 @@ const AdminUsers: NextPage = ({ initialInquiry, ...props }: any) => {
 	/** APOLLO REQUESTS **/
 	const [updateMemberByAdmin] = useMutation(UPDATE_MEMBER_BY_ADMIN);
 
-		const {
-			loading: getAllMembersByAdminLoading,
-			data: getAllMembersByAdminData,
-			error: getAllMembersByAdminError,
-			refetch: getAllMembersRefetch,
-		} = useQuery(GET_ALL_MEMBERS_BY_ADMIN, {
-			fetchPolicy: 'network-only',
-			variables: {
-				input: membersInquiry,
-			},
-			notifyOnNetworkStatusChange: true,
-			onCompleted(data: T) {
-				setMembers(data.getAllMembersByAdmin?.list);
-				setMembersTotal(data.getAllMembersByAdmin?.metaCounter?.[0]?.total ?? 0);
-			},
-		});
+	const {
+		loading: getAllMembersByAdminLoading,
+		data: getAllMembersByAdminData,
+		error: getAllMembersByAdminError,
+		refetch: getAllMembersRefetch,
+	} = useQuery(GET_ALL_MEMBERS_BY_ADMIN, {
+		fetchPolicy: 'network-only',
+		variables: {
+			input: membersInquiry,
+		},
+		notifyOnNetworkStatusChange: true,
+		onCompleted(data: T) {
+			setMembers(data.getAllMembersByAdmin?.list ?? []);
+			setMembersTotal(data.getAllMembersByAdmin?.metaCounter?.[0]?.total ?? 0);
+		},
+	});
 
 
 	/** LIFECYCLES **/
@@ -60,16 +60,15 @@ const AdminUsers: NextPage = ({ initialInquiry, ...props }: any) => {
 
 	/** HANDLERS **/
 	const changePageHandler = async (event: unknown, newPage: number) => {
-		membersInquiry.page = newPage + 1;
-		await getAllMembersRefetch({ input: membersInquiry})
-		setMembersInquiry({ ...membersInquiry });
+		setMembersInquiry({ ...membersInquiry, page: newPage + 1 });
 	};
 
 	const changeRowsPerPageHandler = async (event: React.ChangeEvent<HTMLInputElement>) => {
-		membersInquiry.limit = parseInt(event.target.value, 10);
-		membersInquiry.page = 1;
-			await getAllMembersRefetch({ input: membersInquiry });
-		setMembersInquiry({ ...membersInquiry });
+		setMembersInquiry({
+			...membersInquiry,
+			page: 1,
+			limit: parseInt(event.target.value, 10),
+		});
 	};
 
 	const menuIconClickHandler = (e: any, index: number) => {
@@ -86,34 +85,41 @@ const AdminUsers: NextPage = ({ initialInquiry, ...props }: any) => {
 		setValue(newValue);
 		setSearchText('');
 
-		setMembersInquiry({ ...membersInquiry, page: 1, sort: 'createdAt' });
+		const newSearch: any = { ...membersInquiry.search };
+		delete newSearch.memberStatus;
+		delete newSearch.text;
 
 		switch (newValue) {
 			case 'ACTIVE':
-				setMembersInquiry({ ...membersInquiry, search: { memberStatus: MemberStatus.ACTIVE } });
+				newSearch.memberStatus = MemberStatus.ACTIVE;
 				break;
 			case 'BLOCK':
-				setMembersInquiry({ ...membersInquiry, search: { memberStatus: MemberStatus.BLOCK } });
+				newSearch.memberStatus = MemberStatus.BLOCK;
 				break;
 			case 'DELETE':
-				setMembersInquiry({ ...membersInquiry, search: { memberStatus: MemberStatus.DELETE } });
+				newSearch.memberStatus = MemberStatus.DELETE;
 				break;
 			default:
-				delete membersInquiry?.search?.memberStatus;
-				setMembersInquiry({ ...membersInquiry });
 				break;
 		}
+
+		setMembersInquiry({
+			...membersInquiry,
+			page: 1,
+			sort: 'createdAt',
+			search: newSearch,
+		});
 	};
 
 	const updateMemberHandler = async (updateData: MemberUpdate) => {
 		try {
 			await updateMemberByAdmin({
 				variables: {
-					input:updateData
-				}
-			})
+					input: updateData,
+				},
+			});
 			menuIconCloseHandler();
-			await getAllMembersRefetch({input:membersInquiry})
+			await getAllMembersRefetch({ input: membersInquiry });
 		} catch (err: any) {
 			sweetErrorHandling(err).then();
 		}
@@ -145,20 +151,20 @@ const AdminUsers: NextPage = ({ initialInquiry, ...props }: any) => {
 		try {
 			setSearchType(newValue);
 
+			const newSearch: any = { ...membersInquiry.search };
+
 			if (newValue !== 'ALL') {
-				setMembersInquiry({
-					...membersInquiry,
-					page: 1,
-					sort: 'createdAt',
-					search: {
-						...membersInquiry.search,
-						memberType: newValue as MemberType,
-					},
-				});
+				newSearch.memberType = newValue as MemberType;
 			} else {
-				delete membersInquiry?.search?.memberType;
-				setMembersInquiry({ ...membersInquiry });
+				delete newSearch.memberType;
 			}
+
+			setMembersInquiry({
+				...membersInquiry,
+				page: 1,
+				sort: 'createdAt',
+				search: newSearch,
+			});
 		} catch (err: any) {
 			console.log('searchTypeHandler: ', err.message);
 		}
@@ -228,7 +234,6 @@ const AdminUsers: NextPage = ({ initialInquiry, ...props }: any) => {
 																text: '',
 															},
 														});
-														await getAllMembersRefetch({input:membersInquiry})
 													}}
 												/>
 											)}

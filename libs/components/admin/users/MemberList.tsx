@@ -138,7 +138,7 @@ interface MemberPanelListType {
 }
 
 export const MemberPanelList = (props: MemberPanelListType) => {
-	const { members, anchorEl, menuIconClickHandler, menuIconCloseHandler, updateMemberHandler } = props;
+	const { members = [], anchorEl, menuIconClickHandler, menuIconCloseHandler, updateMemberHandler } = props;
 
 	return (
 		<Stack>

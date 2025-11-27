@@ -5,8 +5,8 @@ import { gql } from '@apollo/client';
  *************************/
 
 export const GET_ALL_MEMBERS_BY_ADMIN = gql`
-			query GetAgents($input: AgentsInquiry!) {
-			getAgents(input: $input) {
+			query GetAllMembersByAdmin($input: MembersInquiry!) {
+			getAllMembersByAdmin(input: $input) {
 			list {
 				_id
 				memberType
