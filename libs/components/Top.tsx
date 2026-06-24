@@ -9,14 +9,14 @@ import Button from '@mui/material/Button';
 import { alpha, styled } from '@mui/material/styles';
 import Menu, { MenuProps } from '@mui/material/Menu';
 // Icons
-import { 
-  SupportAgent, 
-  People, 
-  Home, 
-  Apartment,
-  AccountCircleOutlined,
-  LiveHelp,
-  AccountCircle, 
+import {
+	SupportAgent,
+	People,
+	Home,
+	Biotech,
+	AccountCircleOutlined,
+	LiveHelp,
+	AccountCircle,
 } from '@mui/icons-material';
 
 
@@ -57,7 +57,7 @@ const Top = () => {
 
 	useEffect(() => {
 		switch (router.pathname) {
-			case '/property/detail':
+			case '/equipment/detail':
 				setBgColor(true);
 				break;
 			default:
@@ -159,9 +159,9 @@ const Top = () => {
 						<Home/>	
 						{/* <div>{t('Home')}</div> */}
 					</Link>
-					<Link href={'/property'}>
-						<Apartment/>
-						{/* <div>{t('Properties')}</div> */}
+					<Link href={'/equipment'}>
+						<Biotech />
+						{/* <div>{t('Equipment')}</div> */}
 					</Link>
 					<Link href={'/agent'}>
 						<SupportAgent />
@@ -198,11 +198,11 @@ const Top = () => {
 							<Link href={'/'}>
 								<div>{t('Home')}</div>
 							</Link>
-							<Link href={'/property'}>
-								<div>{t('Equipments')}</div>
+							<Link href={'/equipment'}>
+								<div>{t('Equipment')}</div>
 							</Link>
 							<Link href={'/agent'}>
-								<div> {t('Agents')} </div>
+								<div> {t('Sellers')} </div>
 							</Link>
 							<Link href={'/community?articleCategory=FREE'}>
 								<div> {t('Community')} </div>

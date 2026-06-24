@@ -2,24 +2,24 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import useDeviceDetect from '../../libs/hooks/useDeviceDetect';
 import withLayoutBasic from '../../libs/components/layout/LayoutBasic';
-import PropertyBigCard from '../../libs/components/common/PropertyBigCard';
+import InstrumentBigCard from '../../libs/components/common/InstrumentBigCard';
 import ReviewCard from '../../libs/components/agent/ReviewCard';
 import { Box, Button, Pagination, Stack, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import { useMutation, useQuery, useReactiveVar } from '@apollo/client';
 import { useRouter } from 'next/router';
-import { Property } from '../../libs/types/property/property';
+import { Instrument } from '../../libs/types/instrument/instrument';
 import { Member } from '../../libs/types/member/member';
 import { sweetErrorHandling, sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../libs/sweetAlert';
 import { userVar } from '../../apollo/store';
-import { InstrumentsInquiry } from '../../libs/types/property/property.input';
+import { InstrumentsInquiry } from '../../libs/types/instrument/instrument.input';
 import { CommentInput, CommentsInquiry } from '../../libs/types/comment/comment.input';
 import { Comment } from '../../libs/types/comment/comment';
 import { CommentGroup } from '../../libs/enums/comment.enum';
 import { Messages, REACT_APP_API_URL } from '../../libs/config';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CREATE_COMMENT, LIKE_TARGET_INSTRUMENTS } from '../../apollo/user/mutation';
-import { GET_MEMBER, GET_PROPERTIES } from '../../apollo/user/query';
+import { GET_MEMBER, GET_INSTRUMENTS } from '../../apollo/user/query';
 import { T } from '../../libs/types/common';
 import { GET_COMMENTS } from '../../apollo/admin/query';
 import { Message } from '@mui/icons-material';
@@ -37,8 +37,8 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 	const [agentId, setAgentId] = useState<string | null>(null);
 	const [agent, setAgent] = useState<Member | null>(null);
 	const [searchFilter, setSearchFilter] = useState<InstrumentsInquiry>(initialInput);
-	const [agentProperties, setAgentProperties] = useState<Property[]>([]);
-	const [propertyTotal, setPropertyTotal] = useState<number>(0);
+	const [agentInstruments, setAgentInstruments] = useState<Instrument[]>([]);
+	const [instrumentTotal, setInstrumentTotal] = useState<number>(0);
 	const [commentInquiry, setCommentInquiry] = useState<CommentsInquiry>(initialComment);
 	const [agentComments, setAgentComments] = useState<Comment[]>([]);
 	const [commentTotal, setCommentTotal] = useState<number>(0);
@@ -51,7 +51,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 	/** APOLLO REQUESTS **/
 
 	const [createComment] = useMutation(CREATE_COMMENT);
-	const [likeTargetProperty] = useMutation(LIKE_TARGET_INSTRUMENTS);
+	const [likeTargetInstrument] = useMutation(LIKE_TARGET_INSTRUMENTS);
 
 	const {
 		loading: getMemberLoading,
@@ -86,18 +86,18 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 	});
 
 	const {
-		loading: getPropertiesLoading,
-		data: getPropertiesData,
-		error: getPropertiesError,
-		refetch: getPropertiesRefetch,
-	} = useQuery(GET_PROPERTIES, {
+		loading: getInstrumentsLoading,
+		data: getInstrumentsData,
+		error: getInstrumentsError,
+		refetch: getInstrumentsRefetch,
+	} = useQuery(GET_INSTRUMENTS, {
 		fetchPolicy: 'network-only',
 		variables: { input: searchFilter },
 		skip: !searchFilter.search.memberId,
 		notifyOnNetworkStatusChange: true,
 		onCompleted: (data: T) => {
-			setAgentProperties(data?.getProperties?.list);
-			setPropertyTotal(data?.getProperties?.metaCounter[0]?.total ?? 0);
+			setAgentInstruments(data?.getInstruments?.list);
+			setInstrumentTotal(data?.getInstruments?.metaCounter[0]?.total ?? 0);
 		},
 	});
 
@@ -124,7 +124,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 
 	useEffect(() => {
 		if (searchFilter.search.memberId) {
-			getPropertiesRefetch({ variables: { input: commentInquiry } }).then();
+			getInstrumentsRefetch({ variables: { input: commentInquiry } }).then();
 		}
 	}, [searchFilter]);
 
@@ -144,7 +144,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 		}
 	};
 
-	const propertyPaginationChangeHandler = async (event: ChangeEvent<unknown>, value: number) => {
+	const instrumentPaginationChangeHandler = async (event: ChangeEvent<unknown>, value: number) => {
 		searchFilter.page = value;
 		setSearchFilter({ ...searchFilter });
 	};
@@ -172,21 +172,21 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 		}
 	};
 
-	const likePropertyHandler = async (user: any, id: string) => {
+	const likeInstrumentHandler = async (user: any, id: string) => {
 		try {
 			if (!id) return;
 			if (!user._id) throw new Error(Messages.error2);
 
-			await likeTargetProperty({
+			await likeTargetInstrument({
 				variables: {
 					input: id,
 				},
 			});
 
-			await getPropertiesRefetch({ input: searchFilter });
+			await getInstrumentsRefetch({ input: searchFilter });
 			await sweetTopSmallSuccessAlert('success', 800);
 		} catch (err: any) {
-			console.log('ERROR, likePropertyHandler:', err.message);
+			console.log('ERROR, likeInstrumentHandler:', err.message);
 			sweetMixinErrorAlert(err.message).then();
 		}
 	};
@@ -225,13 +225,13 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 			{/* Properties */}
 			<Stack className="agent-home-list" component="section" aria-label="Agent properties">
 				<Stack className="card-wrap">
-				{agentProperties.map((property: Property) => {
+				{agentInstruments.map((instrument: Instrument) => {
 					return (
-					<div className="wrap-main" key={property?._id}>
-						<PropertyBigCard
-						property={property}
-						likePropertyHandler={likePropertyHandler}
-						key={property?._id}
+					<div className="wrap-main" key={instrument?._id}>
+						<InstrumentBigCard
+						instrument={instrument}
+						likeInstrumentHandler={likeInstrumentHandler}
+						key={instrument?._id}
 						/>
 					</div>
 					);
@@ -239,13 +239,13 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 				</Stack>
 
 				<Stack className="pagination" component="footer">
-				{propertyTotal ? (
+				{instrumentTotal ? (
 					<>
 					<Stack className="pagination-box">
 						<Pagination
 						page={searchFilter.page}
-						count={Math.ceil(propertyTotal / searchFilter.limit) || 1}
-						onChange={propertyPaginationChangeHandler}
+						count={Math.ceil(instrumentTotal / searchFilter.limit) || 1}
+						onChange={instrumentPaginationChangeHandler}
 						shape="circular"
 						color="primary"
 						siblingCount={0}
@@ -254,7 +254,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 						/>
 					</Stack>
 					<span className="total">
-						Total {propertyTotal} propert{propertyTotal > 1 ? 'ies' : 'y'} available
+						Total {instrumentTotal} instrument{instrumentTotal > 1 ? 's' : ''} available
 					</span>
 					</>
 				) : (
@@ -363,32 +363,32 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 					</Stack>
 					<Stack className={'agent-home-list'}>
 						<Stack className={'card-wrap'}>
-							{agentProperties.map((property: Property) => {
+							{agentInstruments.map((instrument: Instrument) => {
 								return (
-									<div className={'wrap-main'} key={property?._id}>
-										<PropertyBigCard
-											property={property}
-											likePropertyHandler={likePropertyHandler}
-											key={property?._id}
+									<div className={'wrap-main'} key={instrument?._id}>
+										<InstrumentBigCard
+											instrument={instrument}
+											likeInstrumentHandler={likeInstrumentHandler}
+											key={instrument?._id}
 										/>
 									</div>
 								);
 							})}
 						</Stack>
 						<Stack className={'pagination'}>
-							{propertyTotal ? (
+							{instrumentTotal ? (
 								<>
 									<Stack className="pagination-box">
 										<Pagination
 											page={searchFilter.page}
-											count={Math.ceil(propertyTotal / searchFilter.limit) || 1}
-											onChange={propertyPaginationChangeHandler}
+											count={Math.ceil(instrumentTotal / searchFilter.limit) || 1}
+											onChange={instrumentPaginationChangeHandler}
 											shape="circular"
 											color="primary"
 										/>
 									</Stack>
 									<span>
-										Total {propertyTotal} propert{propertyTotal > 1 ? 'ies' : 'y'} available
+										Total {instrumentTotal} instrument{instrumentTotal > 1 ? 's' : ''} available
 									</span>
 								</>
 							) : (

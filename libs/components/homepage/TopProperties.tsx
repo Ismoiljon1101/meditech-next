@@ -6,10 +6,10 @@ import EastIcon from '@mui/icons-material/East';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
 import TopPropertyCard from './TopPropertyCard';
-import { InstrumentsInquiry } from '../../types/property/property.input';
-import { Property } from '../../types/property/property';
-import { useMutation, useQuery } from '@apollo/client';
-import { GET_PROPERTIES } from '../../../apollo/user/query';
+import { InstrumentsInquiry } from '../../types/instrument/instrument.input';
+import { Instrument } from '../../types/instrument/instrument';
+import { useQuery } from '@apollo/client';
+import { GET_INSTRUMENTS } from '../../../apollo/user/query';
 import { T } from '../../types/common';
 import { LIKE_TARGET_INSTRUMENTS } from '../../../apollo/user/mutation';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
@@ -22,7 +22,7 @@ interface TopPropertiesProps {
 const TopProperties = (props: TopPropertiesProps) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
-	const [topProperties, setTopProperties] = useState<Property[]>([]);
+	const [topProperties, setTopProperties] = useState<Instrument[]>([]);
 
 	/** APOLLO REQUESTS **/
 	const [likeTargetproperty] = useMutation(LIKE_TARGET_INSTRUMENTS);
@@ -32,12 +32,12 @@ const TopProperties = (props: TopPropertiesProps) => {
 		data: getPropertiesData,
 		error: getPropertiesError,
 		refetch: getPropertiesRefetch,
-	} = useQuery(GET_PROPERTIES, {
+	} = useQuery(GET_INSTRUMENTS, {
 		fetchPolicy: 'cache-and-network', // cach + =>network
 		variables: { input: initialInput },
 		notifyOnNetworkStatusChange: true,
 		onCompleted: (data: T) => {
-			setTopProperties(data?.getProperties?.list);
+			setTopProperties(data?.getInstruments?.list);
 		},
 	});
 
@@ -72,10 +72,10 @@ const TopProperties = (props: TopPropertiesProps) => {
 							spaceBetween={15}
 							modules={[Autoplay]}
 						>
-							{topProperties.map((property: Property) => {
+							{topProperties.map((instrument: Instrument) => {
 								return (
-									<SwiperSlide className={'top-property-slide'} key={property?._id}>
-										<TopPropertyCard property={property} likePropertyHandler={likePropertyHandler} />
+									<SwiperSlide className={'top-property-slide'} key={instrument?._id}>
+										<TopPropertyCard instrument={instrument} likePropertyHandler={likePropertyHandler} />
 									</SwiperSlide>
 								);
 							})}
@@ -115,10 +115,10 @@ const TopProperties = (props: TopPropertiesProps) => {
 								el: '.swiper-top-pagination',
 							}}
 						>
-							{topProperties.map((property: Property) => {
+							{topProperties.map((instrument: Instrument) => {
 								return (
-									<SwiperSlide className={'top-property-slide'} key={property?._id}>
-										<TopPropertyCard property={property} likePropertyHandler={likePropertyHandler} />
+									<SwiperSlide className={'top-property-slide'} key={instrument?._id}>
+										<TopPropertyCard instrument={instrument} likePropertyHandler={likePropertyHandler} />
 									</SwiperSlide>
 								);
 							})}
@@ -134,7 +134,7 @@ TopProperties.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
-		sort: 'propertyRank',
+		sort: 'instrumentRank',
 		direction: 'DESC',
 		search: {},
 	},

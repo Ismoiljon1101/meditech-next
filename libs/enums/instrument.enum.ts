@@ -1,0 +1,36 @@
+export enum InstrumentType {
+	DIAGNOSTIC = 'DIAGNOSTIC',
+	TREATMENT = 'TREATMENT',
+	AUXILIARY = 'AUXILIARY',
+}
+
+export enum InstrumentStatus {
+	HOLD = 'HOLD',
+	ACTIVE = 'ACTIVE',
+	SOLD = 'SOLD',
+	DELETE = 'DELETE',
+}
+
+export enum InstrumentLocation {
+	SEOUL = 'SEOUL',
+	BUSAN = 'BUSAN',
+	INCHEON = 'INCHEON',
+	DAEGU = 'DAEGU',
+	GYEONGJU = 'GYEONGJU',
+	GWANGJU = 'GWANGJU',
+	CHONJU = 'CHONJU',
+	DAEJON = 'DAEJON',
+	JEJU = 'JEJU',
+}
+
+export enum InstrumentBrand {
+	SIEMENS = 'SIEMENS',
+	PHILIPS = 'PHILIPS',
+	GE = 'GE',
+	MINDRAY = 'MINDRAY',
+	SAMSUNG_MEDISON = 'SAMSUNG_MEDISON',
+	DRAGER = 'DRAGER',
+	OLYMPUS = 'OLYMPUS',
+	FUJIFILM = 'FUJIFILM',
+	OTHER = 'OTHER',
+}

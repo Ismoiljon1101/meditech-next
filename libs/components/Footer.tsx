@@ -22,9 +22,8 @@ const Footer = () => {
 							<p>+82 10 48960111</p>
 						</Box>
 						<Box component={'div'} className={'footer-box'}>
-							<span>nee live</span>
+							<span>Need live support?</span>
 							<p>+82 10 48960111</p>
-							<span>Support?</span>
 						</Box>
 						<Box component={'div'} className={'footer-box'}>
 							<p>follow us on social media</p>
@@ -40,8 +39,8 @@ const Footer = () => {
 						<Box component={'div'} className={'bottom'}>
 							<div>
 								<strong>Popular Search</strong>
-								<span>Medical tools for Rent</span>
-								<span>Medical Instruments Low to hide</span>
+								<span>Medical Equipment for Lease</span>
+								<span>Medical Instruments Best Price</span>
 							</div>
 							<div>
 								<strong>Quick Links</strong>
@@ -80,9 +79,8 @@ const Footer = () => {
 							<p>+82 10 48960111</p>
 						</Box>
 						<Box component={'div'} className={'footer-box'}>
-							<span>nee live</span>
+							<span>Need live support?</span>
 							<p>+82 10 48960111</p>
-							<span>Support?</span>
 						</Box>
 						<Box component={'div'} className={'footer-box'}>
 							<p>follow us on social media</p>
@@ -105,8 +103,8 @@ const Footer = () => {
 						<Box component={'div'} className={'bottom'}>
 							<div>
 								<strong>Popular Search</strong>
-								<span>Medical tools for Rent</span>
-								<span>Medical Instruments Low to hide</span>
+								<span>Medical Equipment for Lease</span>
+								<span>Medical Instruments Best Price</span>
 							</div>
 							<div>
 								<strong>Quick Links</strong>

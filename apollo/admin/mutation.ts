@@ -17,7 +17,7 @@ export const UPDATE_MEMBER_BY_ADMIN = gql`
 			memberImage
 			memberAddress
 			memberDesc
-			memberProperties
+			memberInstruments
 			memberRank
 			memberArticles
 			memberPoints
@@ -34,61 +34,63 @@ export const UPDATE_MEMBER_BY_ADMIN = gql`
 `;
 
 /**************************
- *        PROPERTY        *
+ *       INSTRUMENT       *
  *************************/
 
-export const UPDATE_PROPERTY_BY_ADMIN = gql`
-	mutation UpdatePropertyByAdmin($input: PropertyUpdate!) {
-		updatePropertyByAdmin(input: $input) {
+export const UPDATE_INSTRUMENT_BY_ADMIN = gql`
+	mutation UpdateInstrumentByAdmin($input: InstrumentUpdate!) {
+		updateInstrumentByAdmin(input: $input) {
 			_id
-			propertyType
-			propertyStatus
-			propertyLocation
-			propertyAddress
-			propertyTitle
-			propertyPrice
-			propertySquare
-			propertyBeds
-			propertyRooms
-			propertyViews
-			propertyLikes
-			propertyImages
-			propertyDesc
-			propertyBarter
-			propertyRent
+			instrumentType
+			instrumentStatus
+			instrumentLocation
+			instrumentAddress
+			instrumentTitle
+			instrumentPrice
+			instrumentSize
+			instrumentQuantity
+			instrumentCondition
+			instrumentViews
+			instrumentLikes
+			instrumentImages
+			instrumentDesc
+			instrumentBarter
+			instrumentRent
+			instrumentBrand
 			memberId
 			soldAt
 			deletedAt
-			constructedAt
+			manufacturedAt
 			createdAt
 			updatedAt
 		}
 	}
 `;
 
-export const REMOVE_PROPERTY_BY_ADMIN = gql`
-	mutation RemovePropertyByAdmin($input: String!) {
-		removePropertyByAdmin(propertyId: $input) {
+export const REMOVE_INSTRUMENT_BY_ADMIN = gql`
+	mutation RemoveInstrumentByAdmin($input: String!) {
+		removeInstrumentByAdmin(instrumentId: $input) {
 			_id
-			propertyType
-			propertyStatus
-			propertyLocation
-			propertyAddress
-			propertyTitle
-			propertyPrice
-			propertySquare
-			propertyBeds
-			propertyRooms
-			propertyViews
-			propertyLikes
-			propertyImages
-			propertyDesc
-			propertyBarter
-			propertyRent
+			instrumentType
+			instrumentStatus
+			instrumentLocation
+			instrumentAddress
+			instrumentTitle
+			instrumentPrice
+			instrumentSize
+			instrumentQuantity
+			instrumentCondition
+			instrumentViews
+			instrumentLikes
+			instrumentImages
+			instrumentDesc
+			instrumentBarter
+			instrumentRent
+			instrumentBrand
 			memberId
 			soldAt
 			deletedAt
-			constructedAt
+			manufacturedAt
 			createdAt
 			updatedAt
 		}
