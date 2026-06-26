@@ -20,7 +20,7 @@ export const GET_AGENTS = gql`
 				memberDesc
 				memberWarnings
 				memberBlocks
-				memberProperties
+				memberInstruments
 				memberRank
 				memberPoints
 				memberLikes
@@ -55,7 +55,7 @@ query GetMember($input: String!) {
         memberImage
         memberAddress
         memberDesc
-        memberProperties
+        memberInstruments
         memberArticles
         memberPoints
         memberLikes
@@ -79,32 +79,33 @@ query GetMember($input: String!) {
 `);
 
 /**************************
- *        PROPERTY        *
+ *       INSTRUMENT       *
  *************************/
 
-export const GET_PROPERTY = gql`
-	query GetProperty($input: String!) {
-		getProperty(propertyId: $input) {
+export const GET_INSTRUMENT = gql`
+	query GetInstrument($input: String!) {
+		getInstrument(instrumentId: $input) {
 			_id
-			propertyType
-			propertyStatus
-			propertyLocation
-			propertyAddress
-			propertyTitle
-			propertyPrice
-			propertySquare
-			propertyBeds
-			propertyRooms
-			propertyViews
-			propertyLikes
-			propertyImages
-			propertyDesc
-			propertyBarter
-			propertyRent
+			instrumentType
+			instrumentStatus
+			instrumentLocation
+			instrumentAddress
+			instrumentTitle
+			instrumentPrice
+			instrumentSize
+			instrumentQuantity
+			instrumentCondition
+			instrumentViews
+			instrumentLikes
+			instrumentImages
+			instrumentDesc
+			instrumentBarter
+			instrumentRent
+			instrumentBrand
 			memberId
 			soldAt
 			deletedAt
-			constructedAt
+			manufacturedAt
 			createdAt
 			updatedAt
 			memberData {
@@ -137,31 +138,32 @@ export const GET_PROPERTY = gql`
 	}
 `;
 
-export const GET_PROPERTIES = gql`
-	query GetProperties($input: PropertiesInquiry!) {
-		getProperties(input: $input) {
+export const GET_INSTRUMENTS = gql`
+	query GetInstruments($input: InstrumentsInquiry!) {
+		getInstruments(input: $input) {
 			list {
 				_id
-				propertyType
-				propertyStatus
-				propertyLocation
-				propertyAddress
-				propertyTitle
-				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
-				propertyViews
-				propertyLikes
-				propertyRank
-				propertyImages
-				propertyDesc
-				propertyBarter
-				propertyRent
+				instrumentType
+				instrumentStatus
+				instrumentLocation
+				instrumentAddress
+				instrumentTitle
+				instrumentPrice
+				instrumentSize
+				instrumentQuantity
+				instrumentCondition
+				instrumentViews
+				instrumentLikes
+				instrumentRank
+				instrumentImages
+				instrumentDesc
+				instrumentBarter
+				instrumentRent
+				instrumentBrand
 				memberId
 				soldAt
 				deletedAt
-				constructedAt
+				manufacturedAt
 				createdAt
 				updatedAt
 				memberData {
@@ -177,7 +179,7 @@ export const GET_PROPERTIES = gql`
 					memberDesc
 					memberWarnings
 					memberBlocks
-					memberProperties
+					memberInstruments
 					memberRank
 					memberPoints
 					memberLikes
@@ -199,30 +201,31 @@ export const GET_PROPERTIES = gql`
 	}
 `;
 
-export const GET_AGENT_PROPERTIES = gql`
-	query GetAgentProperties($input: AgentPropertiesInquiry!) {
-		getAgentProperties(input: $input) {
+export const GET_SELLER_INSTRUMENTS = gql`
+	query GetSellerInstruments($input: SellerInstrumentsInquiry!) {
+		getSellerInstruments(input: $input) {
 			list {
 				_id
-				propertyType
-				propertyStatus
-				propertyLocation
-				propertyAddress
-				propertyTitle
-				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
-				propertyViews
-				propertyLikes
-				propertyImages
-				propertyDesc
-				propertyBarter
-				propertyRent
+				instrumentType
+				instrumentStatus
+				instrumentLocation
+				instrumentAddress
+				instrumentTitle
+				instrumentPrice
+				instrumentSize
+				instrumentQuantity
+				instrumentCondition
+				instrumentViews
+				instrumentLikes
+				instrumentImages
+				instrumentDesc
+				instrumentBarter
+				instrumentRent
+				instrumentBrand
 				memberId
 				soldAt
 				deletedAt
-				constructedAt
+				manufacturedAt
 				createdAt
 				updatedAt
 			}
@@ -238,27 +241,28 @@ export const GET_FAVORITES = gql`
 		getFavorites(input: $input) {
 			list {
 				_id
-				propertyType
-				propertyStatus
-				propertyLocation
-				propertyAddress
-				propertyTitle
-				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
-				propertyViews
-				propertyLikes
-				propertyComments
-				propertyRank
-				propertyImages
-				propertyDesc
-				propertyBarter
-				propertyRent
+				instrumentType
+				instrumentStatus
+				instrumentLocation
+				instrumentAddress
+				instrumentTitle
+				instrumentPrice
+				instrumentSize
+				instrumentQuantity
+				instrumentCondition
+				instrumentViews
+				instrumentLikes
+				instrumentComments
+				instrumentRank
+				instrumentImages
+				instrumentDesc
+				instrumentBarter
+				instrumentRent
+				instrumentBrand
 				memberId
 				soldAt
 				deletedAt
-				constructedAt
+				manufacturedAt
 				createdAt
 				updatedAt
 				memberData {
@@ -272,7 +276,7 @@ export const GET_FAVORITES = gql`
 					memberImage
 					memberAddress
 					memberDesc
-					memberProperties
+					memberInstruments
 					memberArticles
 					memberPoints
 					memberLikes
@@ -301,27 +305,28 @@ export const GET_VISITED = gql`
 		getVisited(input: $input) {
 			list {
 				_id
-				propertyType
-				propertyStatus
-				propertyLocation
-				propertyAddress
-				propertyTitle
-				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
-				propertyViews
-				propertyLikes
-				propertyComments
-				propertyRank
-				propertyImages
-				propertyDesc
-				propertyBarter
-				propertyRent
+				instrumentType
+				instrumentStatus
+				instrumentLocation
+				instrumentAddress
+				instrumentTitle
+				instrumentPrice
+				instrumentSize
+				instrumentQuantity
+				instrumentCondition
+				instrumentViews
+				instrumentLikes
+				instrumentComments
+				instrumentRank
+				instrumentImages
+				instrumentDesc
+				instrumentBarter
+				instrumentRent
+				instrumentBrand
 				memberId
 				soldAt
 				deletedAt
-				constructedAt
+				manufacturedAt
 				createdAt
 				updatedAt
 				memberData {
@@ -335,7 +340,7 @@ export const GET_VISITED = gql`
 					memberImage
 					memberAddress
 					memberDesc
-					memberProperties
+					memberInstruments
 					memberArticles
 					memberPoints
 					memberLikes
@@ -391,7 +396,7 @@ export const GET_BOARD_ARTICLE = gql`
 				memberDesc
 				memberWarnings
 				memberBlocks
-				memberProperties
+				memberInstruments
 				memberRank
 				memberPoints
 				memberLikes
@@ -443,7 +448,7 @@ export const GET_BOARD_ARTICLES = gql`
 					memberDesc
 					memberWarnings
 					memberBlocks
-					memberProperties
+					memberInstruments
 					memberRank
 					memberPoints
 					memberLikes
@@ -489,7 +494,7 @@ export const GET_COMMENTS = gql`
 					memberDesc
 					memberWarnings
 					memberBlocks
-					memberProperties
+					memberInstruments
 					memberRank
 					memberPoints
 					memberLikes
@@ -540,7 +545,7 @@ export const GET_MEMBER_FOLLOWERS = gql`
 					memberImage
 					memberAddress
 					memberDesc
-					memberProperties
+					memberInstruments
 					memberArticles
 					memberPoints
 					memberLikes
@@ -583,7 +588,7 @@ export const GET_MEMBER_FOLLOWINGS = gql`
 					memberImage
 					memberAddress
 					memberDesc
-					memberProperties
+					memberInstruments
 					memberArticles
 					memberPoints
 					memberLikes

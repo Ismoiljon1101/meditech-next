@@ -54,23 +54,23 @@ const MyMenu = () => {
 			// 		</Stack>
 			// 	</Stack>
 			// 	<Stack className={'sections'}>
-			// 		<Stack className={'section'} style={{ height: user.memberType === 'AGENT' ? '228px' : '153px' }}>
+			// 		<Stack className={'section'} style={{ height: user.memberType === 'SELLER' ? '228px' : '153px' }}>
 			// 			<Typography className="title" variant={'h5'}>
 			// 				MANAGE LISTINGS
 			// 			</Typography>
 			// 			<List className={'sub-section'}>
-			// 				{user.memberType === 'AGENT' && (
+			// 				{user.memberType === 'SELLER' && (
 			// 					<>
-			// 						<ListItem className={pathname === 'addProperty' ? 'focus' : ''}>
+			// 						<ListItem className={pathname === 'addInstrument' ? 'focus' : ''}>
 			// 							<Link
 			// 								href={{
 			// 									pathname: '/mypage',
-			// 									query: { category: 'addProperty' },
+			// 									query: { category: 'addInstrument' },
 			// 								}}
 			// 								scroll={false}
 			// 							>
 			// 								<div className={'flex-box'}>
-			// 									{category === 'addProperty' ? (
+			// 									{category === 'addInstrument' ? (
 			// 										<img className={'com-icon'} src={'/img/icons/whiteTab.svg'} alt={'com-icon'} />
 			// 									) : (
 			// 										<img className={'com-icon'} src={'/img/icons/newTab.svg'} alt={'com_icon'} />
@@ -84,16 +84,16 @@ const MyMenu = () => {
 			// 								</div>
 			// 							</Link>
 			// 						</ListItem>
-			// 						<ListItem className={pathname === 'myProperties' ? 'focus' : ''}>
+			// 						<ListItem className={pathname === 'myInstruments' ? 'focus' : ''}>
 			// 							<Link
 			// 								href={{
 			// 									pathname: '/mypage',
-			// 									query: { category: 'myProperties' },
+			// 									query: { category: 'myInstruments' },
 			// 								}}
 			// 								scroll={false}
 			// 							>
 			// 								<div className={'flex-box'}>
-			// 									{category === 'myProperties' ? (
+			// 									{category === 'myInstruments' ? (
 			// 										<img className={'com-icon'} src={'/img/icons/homeWhite.svg'} alt={'com-icon'} />
 			// 									) : (
 			// 										<img className={'com-icon'} src={'/img/icons/home.svg'} alt={'com-icon'} />
@@ -363,23 +363,23 @@ const MyMenu = () => {
 					</Stack>
 				</Stack>
 				<Stack className={'sections'}>
-					<Stack className={'section'} style={{ height: user.memberType === 'AGENT' ? '228px' : '153px' }}>
+					<Stack className={'section'} style={{ height: user.memberType === 'SELLER' ? '228px' : '153px' }}>
 						<Typography className="title" variant={'h5'}>
 							MANAGE LISTINGS
 						</Typography>
 						<List className={'sub-section'}>
-							{user.memberType === 'AGENT' && (
+							{user.memberType === 'SELLER' && (
 								<>
-									<ListItem className={pathname === 'addProperty' ? 'focus' : ''}>
+									<ListItem className={pathname === 'addInstrument' ? 'focus' : ''}>
 										<Link
 											href={{
 												pathname: '/mypage',
-												query: { category: 'addProperty' },
+												query: { category: 'addInstrument' },
 											}}
 											scroll={false}
 										>
 											<div className={'flex-box'}>
-												{category === 'addProperty' ? (
+												{category === 'addInstrument' ? (
 													<img className={'com-icon'} src={'/img/icons/whiteTab.svg'} alt={'com-icon'} />
 												) : (
 													<img className={'com-icon'} src={'/img/icons/newTab.svg'} alt={'com_icon'} />
@@ -393,16 +393,16 @@ const MyMenu = () => {
 											</div>
 										</Link>
 									</ListItem>
-									<ListItem className={pathname === 'myProperties' ? 'focus' : ''}>
+									<ListItem className={pathname === 'myInstruments' ? 'focus' : ''}>
 										<Link
 											href={{
 												pathname: '/mypage',
-												query: { category: 'myProperties' },
+												query: { category: 'myInstruments' },
 											}}
 											scroll={false}
 										>
 											<div className={'flex-box'}>
-												{category === 'myProperties' ? (
+												{category === 'myInstruments' ? (
 													<img className={'com-icon'} src={'/img/icons/homeWhite.svg'} alt={'com-icon'} />
 												) : (
 													<img className={'com-icon'} src={'/img/icons/home.svg'} alt={'com-icon'} />

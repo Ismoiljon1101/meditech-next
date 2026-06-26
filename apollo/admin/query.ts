@@ -18,7 +18,7 @@ export const GET_ALL_MEMBERS_BY_ADMIN = gql`
 				memberImage
 				memberAddress
 				memberDesc
-				memberProperties
+				memberInstruments
 				memberArticles
 				memberFollowers
 				memberFollowings
@@ -52,33 +52,34 @@ export const GET_ALL_MEMBERS_BY_ADMIN = gql`
 `;
 
 /**************************
- *        PROPERTY        *
+ *       INSTRUMENT       *
  *************************/
 
-export const GET_ALL_PROPERTIES_BY_ADMIN = gql`
-	query GetAllPropertiesByAdmin($input: AllPropertiesInquiry!) {
-		getAllPropertiesByAdmin(input: $input) {
+export const GET_ALL_INSTRUMENTS_BY_ADMIN = gql`
+	query GetAllInstrumentsByAdmin($input: AllInstrumentsInquiry!) {
+		getAllInstrumentsByAdmin(input: $input) {
 			list {
 				_id
-				propertyType
-				propertyStatus
-				propertyLocation
-				propertyAddress
-				propertyTitle
-				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
-				propertyViews
-				propertyLikes
-				propertyImages
-				propertyDesc
-				propertyBarter
-				propertyRent
+				instrumentType
+				instrumentStatus
+				instrumentLocation
+				instrumentAddress
+				instrumentTitle
+				instrumentPrice
+				instrumentSize
+				instrumentQuantity
+				instrumentCondition
+				instrumentViews
+				instrumentLikes
+				instrumentImages
+				instrumentDesc
+				instrumentBarter
+				instrumentRent
+				instrumentBrand
 				memberId
 				soldAt
 				deletedAt
-				constructedAt
+				manufacturedAt
 				createdAt
 				updatedAt
 				memberData {
@@ -94,7 +95,7 @@ export const GET_ALL_PROPERTIES_BY_ADMIN = gql`
 					memberDesc
 					memberWarnings
 					memberBlocks
-					memberProperties
+					memberInstruments
 					memberRank
 					memberPoints
 					memberLikes
@@ -144,7 +145,7 @@ export const GET_ALL_BOARD_ARTICLES_BY_ADMIN = gql`
 					memberDesc
 					memberWarnings
 					memberBlocks
-					memberProperties
+					memberInstruments
 					memberRank
 					memberPoints
 					memberLikes
@@ -191,7 +192,7 @@ export const GET_COMMENTS = gql`
 					memberDesc
 					memberWarnings
 					memberBlocks
-					memberProperties
+					memberInstruments
 					memberRank
 					memberPoints
 					memberLikes

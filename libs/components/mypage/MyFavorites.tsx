@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { NextPage } from 'next';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
 import { Pagination, Stack, Typography } from '@mui/material';
-import PropertyCard from '../property/PropertyCard';
-import { Property } from '../../types/property/property';
+import InstrumentCard from '../instrument/InstrumentCard';
+import { Instrument } from '../../types/instrument/instrument';
 import { T } from '../../types/common';
 import { useMutation, useQuery } from '@apollo/client';
 import { LIKE_TARGET_INSTRUMENTS } from '../../../apollo/user/mutation';
@@ -13,7 +13,7 @@ import { Messages } from '../../config';
 
 const MyFavorites: NextPage = () => {
 	const device = useDeviceDetect();
-	const [myFavorites, setMyFavorites] = useState<Property[]>([]);
+	const [myFavorites, setMyFavorites] = useState<Instrument[]>([]);
 	const [total, setTotal] = useState<number>(0);
 	const [searchFavorites, setSearchFavorites] = useState<T>({ page: 1, limit: 6 });
 
@@ -70,8 +70,8 @@ const MyFavorites: NextPage = () => {
 				</Stack>
 				<Stack className="favorites-list-box">
 					{myFavorites?.length ? (
-						myFavorites?.map((property: Property) => {
-							return <PropertyCard property={property} myFavorites={true} likePropertyHandler={likePropertyHandler} />;
+						myFavorites?.map((instrument: Instrument) => {
+							return <InstrumentCard instrument={instrument} myFavorites={true} likeInstrumentHandler={likePropertyHandler} />;
 						})
 					) : (
 						<div className={'no-data'}>
@@ -93,7 +93,7 @@ const MyFavorites: NextPage = () => {
 						</Stack>
 						<Stack className="total-result">
 							<Typography>
-								Total {total} favorite propert{total > 1 ? 'ies' : 'y'}
+								Total {total} favorite instrument{total > 1 ? 's' : ''}
 							</Typography>
 						</Stack>
 					</Stack>
@@ -111,8 +111,8 @@ const MyFavorites: NextPage = () => {
 				</Stack>
 				<Stack className="favorites-list-box">
 					{myFavorites?.length ? (
-						myFavorites?.map((property: Property) => {
-							return <PropertyCard property={property} myFavorites={true} likePropertyHandler={likePropertyHandler} />;
+						myFavorites?.map((instrument: Instrument) => {
+							return <InstrumentCard instrument={instrument} myFavorites={true} likeInstrumentHandler={likePropertyHandler} />;
 						})
 					) : (
 						<div className={'no-data'}>
@@ -134,7 +134,7 @@ const MyFavorites: NextPage = () => {
 						</Stack>
 						<Stack className="total-result">
 							<Typography>
-								Total {total} favorite propert{total > 1 ? 'ies' : 'y'}
+								Total {total} favorite instrument{total > 1 ? 's' : ''}
 							</Typography>
 						</Stack>
 					</Stack>

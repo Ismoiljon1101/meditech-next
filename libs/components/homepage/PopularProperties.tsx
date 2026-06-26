@@ -6,10 +6,10 @@ import { Autoplay, Navigation, Pagination } from 'swiper';
 import WestIcon from '@mui/icons-material/West';
 import EastIcon from '@mui/icons-material/East';
 import PopularPropertyCard from './PopularPropertyCard';
-import { Property } from '../../types/property/property';
+import { Instrument } from '../../types/instrument/instrument';
 import Link from 'next/link';
-import { InstrumentsInquiry } from '../../types/property/property.input';
-import { GET_PROPERTIES } from '../../../apollo/user/query';
+import { InstrumentsInquiry } from '../../types/instrument/instrument.input';
+import { GET_INSTRUMENTS } from '../../../apollo/user/query';
 import { useQuery } from '@apollo/client';
 import { T } from '../../types/common';
 
@@ -20,7 +20,7 @@ interface PopularPropertiesProps {
 const PopularProperties = (props: PopularPropertiesProps) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
-	const [popularProperties, setPopularProperties] = useState<Property[]>([]);
+	const [popularProperties, setPopularProperties] = useState<Instrument[]>([]);
 
 	/** APOLLO REQUESTS **/
 
@@ -29,12 +29,12 @@ const PopularProperties = (props: PopularPropertiesProps) => {
 		data: getPropertiesData,
 		error: getPropertiesError,
 		refetch: getPropertiesRefetch,
-	} = useQuery(GET_PROPERTIES, {
+	} = useQuery(GET_INSTRUMENTS, {
 		fetchPolicy: 'cache-and-network',
 		variables: { input: initialInput },
 		notifyOnNetworkStatusChange: true,
 		onCompleted: (data: T) => {
-			setPopularProperties(data?.getProperties?.list);
+			setPopularProperties(data?.getInstruments?.list);
 		},
 	});
 	/** HANDLERS **/
@@ -56,10 +56,10 @@ const PopularProperties = (props: PopularPropertiesProps) => {
 							spaceBetween={25}
 							modules={[Autoplay]}
 						>
-							{popularProperties.map((property: Property) => {
+							{popularProperties.map((instrument: Instrument) => {
 								return (
-									<SwiperSlide key={property._id} className={'popular-property-slide'}>
-										<PopularPropertyCard property={property} />
+									<SwiperSlide key={instrument._id} className={'popular-property-slide'}>
+										<PopularPropertyCard instrument={instrument} />
 									</SwiperSlide>
 								);
 							})}
@@ -79,7 +79,7 @@ const PopularProperties = (props: PopularPropertiesProps) => {
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'more-box'}>
-								<Link href={'/property'}>
+								<Link href={'/equipment'}>
 									<span>See All Categories</span>
 								</Link>
 								<img src="/img/icons/rightup.svg" alt="" />
@@ -100,10 +100,10 @@ const PopularProperties = (props: PopularPropertiesProps) => {
 								el: '.swiper-popular-pagination',
 							}}
 						>
-							{popularProperties.map((property: Property) => {
+							{popularProperties.map((instrument: Instrument) => {
 								return (
-									<SwiperSlide key={property._id} className={'popular-property-slide'}>
-										<PopularPropertyCard property={property} />
+									<SwiperSlide key={instrument._id} className={'popular-property-slide'}>
+										<PopularPropertyCard instrument={instrument} />
 									</SwiperSlide>
 								);
 							})}
@@ -124,7 +124,7 @@ PopularProperties.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 7,
-		sort: 'propertyViews',
+		sort: 'instrumentViews',
 		direction: 'DESC',
 		search: {},
 	},

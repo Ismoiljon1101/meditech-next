@@ -5,13 +5,13 @@ import WestIcon from '@mui/icons-material/West';
 import EastIcon from '@mui/icons-material/East';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
-import { Property as Instrument } from '../../types/property/property';
-import { InstrumentsInquiry as InstrumentsInquiry } from '../../types/property/property.input';
+import { Instrument } from '../../types/instrument/instrument';
+import { InstrumentsInquiry } from '../../types/instrument/instrument.input';
 import TrendInstrumentsCard from './TrendPropertyCard';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_PROPERTIES as GET_INSTRUMENTS } from '../../../apollo/user/query';
+import { GET_INSTRUMENTS } from '../../../apollo/user/query';
 import { T } from '../../types/common';
-import { LIKE_TARGET_INSTRUMENTS as LIKE_TARGET_INSTRUMENT } from '../../../apollo/user/mutation';
+import { LIKE_TARGET_INSTRUMENTS } from '../../../apollo/user/mutation';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import { Message } from '../../enums/common.enum';
 
@@ -25,7 +25,7 @@ const TrendInstruments = (props: TrendInstrumentsProps) => {
 	const [trendInstruments, setTrendProperties] = useState<Instrument[]>([]);
 
 	/** APOLLO REQUESTS **/
-	const [likeTargetInstrument] = useMutation(LIKE_TARGET_INSTRUMENT);
+	const [likeTargetInstrument] = useMutation(LIKE_TARGET_INSTRUMENTS);
 
 	const {
 		loading: getInstrumentsLoading,
@@ -37,7 +37,7 @@ const TrendInstruments = (props: TrendInstrumentsProps) => {
 		variables: { input: initialInput },
 		notifyOnNetworkStatusChange: true,
 		onCompleted: (data: T) => {
-			setTrendProperties(data?.getProperties?.list);
+			setTrendProperties(data?.getInstruments?.list);
 		},
 	});
 
@@ -82,10 +82,10 @@ const TrendInstruments = (props: TrendInstrumentsProps) => {
 								spaceBetween={15}
 								modules={[Autoplay]}
 							>
-								{trendInstruments.map((property: Instrument) => {
+								{trendInstruments.map((instrument: Instrument) => {
 									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
-											<TrendInstrumentsCard property={property} likePropertyHandler={likeInstrumentHandler} />
+										<SwiperSlide key={instrument._id} className={'trend-property-slide'}>
+											<TrendInstrumentsCard instrument={instrument} likePropertyHandler={likeInstrumentHandler} />
 										</SwiperSlide>
 									);
 								})}
@@ -131,10 +131,10 @@ const TrendInstruments = (props: TrendInstrumentsProps) => {
 									el: '.swiper-trend-pagination',
 								}}
 							>
-								{trendInstruments.map((property: Instrument) => {
+								{trendInstruments.map((instrument: Instrument) => {
 									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
-											<TrendInstrumentsCard property={property} likePropertyHandler={likeInstrumentHandler} />
+										<SwiperSlide key={instrument._id} className={'trend-property-slide'}>
+											<TrendInstrumentsCard instrument={instrument} likePropertyHandler={likeInstrumentHandler} />
 										</SwiperSlide>
 									);
 								})}
@@ -151,7 +151,7 @@ TrendInstruments.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
-		sort: 'propertyLikes',
+		sort: 'instrumentLikes',
 		direction: 'DESC',
 		search: {},
 	},

@@ -19,7 +19,7 @@ export const SIGN_UP = gql`
 			memberDesc
 			memberWarnings
 			memberBlocks
-			memberProperties
+			memberInstruments
 			memberRank
 			memberArticles
 			memberPoints
@@ -48,7 +48,7 @@ export const LOGIN = gql`
 			memberDesc
 			memberWarnings
 			memberBlocks
-			memberProperties
+			memberInstruments
 			memberRank
 			memberPoints
 			memberLikes
@@ -74,7 +74,7 @@ export const UPDATE_MEMBER = gql`
 			memberImage
 			memberAddress
 			memberDesc
-			memberProperties
+			memberInstruments
 			memberRank
 			memberArticles
 			memberPoints
@@ -105,7 +105,7 @@ export const LIKE_TARGET_MEMBER = gql`
 			memberDesc
 			memberWarnings
 			memberBlocks
-			memberProperties
+			memberInstruments
 			memberRank
 			memberPoints
 			memberLikes
@@ -119,61 +119,63 @@ export const LIKE_TARGET_MEMBER = gql`
 `;
 
 /**************************
- *        PROPERTY        *
+ *       INSTRUMENT       *
  *************************/
 
-export const CREATE_PROPERTY = gql`
-	mutation CreateProperty($input: PropertyInput!) {
-		createProperty(input: $input) {
+export const CREATE_INSTRUMENT = gql`
+	mutation CreateInstrument($input: InstrumentInput!) {
+		createInstrument(input: $input) {
 			_id
-			propertyType
-			propertyStatus
-			propertyLocation
-			propertyAddress
-			propertyTitle
-			propertyPrice
-			propertySquare
-			propertyBeds
-			propertyRooms
-			propertyViews
-			propertyLikes
-			propertyImages
-			propertyDesc
-			propertyBarter
-			propertyRent
+			instrumentType
+			instrumentStatus
+			instrumentLocation
+			instrumentAddress
+			instrumentTitle
+			instrumentPrice
+			instrumentSize
+			instrumentQuantity
+			instrumentCondition
+			instrumentViews
+			instrumentLikes
+			instrumentImages
+			instrumentDesc
+			instrumentBarter
+			instrumentRent
+			instrumentBrand
 			memberId
 			soldAt
 			deletedAt
-			constructedAt
+			manufacturedAt
 			createdAt
 			updatedAt
 		}
 	}
 `;
 
-export const UPDATE_PROPERTY = gql`
-	mutation UpdateProperty($input: PropertyUpdate!) {
-		updateProperty(input: $input) {
+export const UPDATE_INSTRUMENT = gql`
+	mutation UpdateInstrument($input: InstrumentUpdate!) {
+		updateInstrument(input: $input) {
 			_id
-			propertyType
-			propertyStatus
-			propertyLocation
-			propertyAddress
-			propertyTitle
-			propertyPrice
-			propertySquare
-			propertyBeds
-			propertyRooms
-			propertyViews
-			propertyLikes
-			propertyImages
-			propertyDesc
-			propertyBarter
-			propertyRent
+			instrumentType
+			instrumentStatus
+			instrumentLocation
+			instrumentAddress
+			instrumentTitle
+			instrumentPrice
+			instrumentSize
+			instrumentQuantity
+			instrumentCondition
+			instrumentViews
+			instrumentLikes
+			instrumentImages
+			instrumentDesc
+			instrumentBarter
+			instrumentRent
+			instrumentBrand
 			memberId
 			soldAt
 			deletedAt
-			constructedAt
+			manufacturedAt
 			createdAt
 			updatedAt
 		}
@@ -181,28 +183,29 @@ export const UPDATE_PROPERTY = gql`
 `;
 
 export const LIKE_TARGET_INSTRUMENTS = gql`
-	mutation LikeTargetProperty($input: String!) {
-		likeTargetProperty(propertyId: $input) {
+	mutation LikeTargetInstrument($input: String!) {
+		likeTargetInstrument(instrumentId: $input) {
 			_id
-			propertyType
-			propertyStatus
-			propertyLocation
-			propertyAddress
-			propertyTitle
-			propertyPrice
-			propertySquare
-			propertyBeds
-			propertyRooms
-			propertyViews
-			propertyLikes
-			propertyImages
-			propertyDesc
-			propertyBarter
-			propertyRent
+			instrumentType
+			instrumentStatus
+			instrumentLocation
+			instrumentAddress
+			instrumentTitle
+			instrumentPrice
+			instrumentSize
+			instrumentQuantity
+			instrumentCondition
+			instrumentViews
+			instrumentLikes
+			instrumentImages
+			instrumentDesc
+			instrumentBarter
+			instrumentRent
+			instrumentBrand
 			memberId
 			soldAt
 			deletedAt
-			constructedAt
+			manufacturedAt
 			createdAt
 			updatedAt
 		}
