@@ -338,8 +338,8 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 						</Box>
 						<Box className={`box ${openRooms ? 'on' : ''}`} onClick={roomStateChangeHandler}>
 							<span>
-								{searchFilter?.search?.roomsList?.[0] != null
-								? conditionLabels[Number(searchFilter.search.roomsList[0])] || t('Condition')
+								{searchFilter?.search?.conditionList?.[0] != null
+								? conditionLabels[Number(searchFilter.search.conditionList[0])] || t('Condition')
 								: t('Condition')}
 							</span>
 							<ExpandMoreIcon />
