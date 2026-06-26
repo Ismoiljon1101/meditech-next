@@ -129,7 +129,7 @@ const MyProperties: NextPage = ({ initialInput, ...props }: any) => {
 						{agentProperties?.length === 0 ? (
 							<div className={'no-data'}>
 								<img src="/img/icons/icoAlert.svg" alt="" />
-								<p>No Property found!</p>
+								<p>no instruments found!</p>
 							</div>
 						) : (
 							agentProperties.map((property: Property) => {
@@ -201,7 +201,7 @@ const MyProperties: NextPage = ({ initialInput, ...props }: any) => {
 						{agentProperties?.length === 0 ? (
 							<div className={'no-data'}>
 								<img src="/img/icons/icoAlert.svg" alt="" />
-								<p>No Property found!</p>
+								<p>no instruments found!</p>
 							</div>
 						) : (
 							agentProperties.map((property: Property) => {
