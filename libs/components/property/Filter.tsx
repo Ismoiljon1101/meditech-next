@@ -17,7 +17,7 @@ import { PropertyLocation, PropertyType } from '../../enums/property.enum';
 import { InstrumentsInquiry } from '../../types/property/property.input';
 import { useRouter } from 'next/router';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
-import { propertySquare } from '../../config';
+import { instrumentSize as propertySquare } from '../../config';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
 const MenuProps = {
