@@ -304,3 +304,23 @@ export const light = {
 	shadow,
 	typography,
 };
+
+/**
+ * DARK THEME
+ */
+export const dark = {
+	...light,
+	palette: {
+		...light.palette,
+		type: 'dark',
+		background: {
+			default: '#121212',
+			paper: '#1d1d1d',
+		},
+		text: {
+			primary: common.white,
+			secondary: '#b0b0b0',
+			dark: common.white,
+		},
+	},
+};

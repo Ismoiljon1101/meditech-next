@@ -25,20 +25,20 @@ interface ThemeContextProviderProps {
 
 export const ThemeContextProvider = ({ children }: ThemeContextProviderProps) => {
     const [mode, setMode] = useState<'light' | 'dark'>('light');
-    const [theme, setTheme] = useState<Theme>(createTheme(light));
+    const [theme, setTheme] = useState<Theme>(createTheme(light as any));
 
     useEffect(() => {
         const savedMode = localStorage.getItem('themeMode') as 'light' | 'dark';
         if (savedMode) {
             setMode(savedMode);
-            setTheme(createTheme(savedMode === 'dark' ? (dark || light) : light));
+            setTheme(createTheme((savedMode === 'dark' ? (dark || light) : light) as any));
         }
     }, []);
 
     const toggleTheme = () => {
         const newMode = mode === 'light' ? 'dark' : 'light';
         setMode(newMode);
-        setTheme(createTheme(newMode === 'dark' ? (dark || light) : light));
+        setTheme(createTheme((newMode === 'dark' ? (dark || light) : light) as any));
         localStorage.setItem('themeMode', newMode);
     };
 
