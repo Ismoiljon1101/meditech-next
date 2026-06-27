@@ -1,7 +1,7 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
 FROM node:22-alpine AS builder
 WORKDIR /app
@@ -10,7 +10,7 @@ COPY . .
 ENV REACT_APP_API_URL=https://meditech.ismaildev.uz/api
 ENV REACT_APP_API_GRAPHQL_URL=https://meditech.ismaildev.uz/api/graphql
 ENV REACT_APP_API_WS=wss://meditech.ismaildev.uz/api
-RUN npm run build
+RUN yarn build
 
 FROM node:22-alpine AS runner
 WORKDIR /app
